@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Map GraphQL type to language-specific type (java/scala/kotlin/etc)
+ * Map GraphQL type to language-specific type (java/kotlin/etc)
  *
  * @author kobylynskyi
  */
@@ -60,7 +60,7 @@ public abstract class GraphQLTypeMapper {
     }
 
     /**
-     * Wrap language-specific type (java/scala/kotlin/etc) into {@link List}.
+     * Wrap language-specific type (java/kotlin/etc) into {@link List}.
      * E.g.: {@code String} becomes {@code List<String>}
      *
      * @param type           The name of a type that will be wrapped into {@code List<>}
@@ -107,7 +107,7 @@ public abstract class GraphQLTypeMapper {
      * @param mappingContext  Global mapping context
      * @param namedDefinition Named definition
      * @param parentTypeName  Name of the parent type
-     * @return Java/Scala type wrapped into the subscriptionReturnType
+     * @return Java/Kotlin type wrapped into the subscriptionReturnType
      */
     public abstract String wrapApiReturnTypeIfRequired(MappingContext mappingContext,
                                                        NamedDefinition namedDefinition,
@@ -197,20 +197,20 @@ public abstract class GraphQLTypeMapper {
      *
      * @param mappingContext Global mapping context
      * @param type           GraphQL type
-     * @return Corresponding language-specific type (java/scala/kotlin/etc)
+     * @return Corresponding language-specific type (java/kotlin/etc)
      */
     public String getLanguageType(MappingContext mappingContext, Type<?> type) {
         return getLanguageType(mappingContext, type, null, null).getJavaName();
     }
 
     /**
-     * Convert GraphQL type to a corresponding language-specific type (java/scala/kotlin/etc)
+     * Convert GraphQL type to a corresponding language-specific type (java/kotlin/etc)
      *
      * @param mappingContext Global mapping context
      * @param graphqlType    GraphQL type
      * @param name           GraphQL type name
      * @param parentTypeName Name of the parent type
-     * @return Corresponding language-specific type (java/scala/kotlin/etc)
+     * @return Corresponding language-specific type (java/kotlin/etc)
      */
     public NamedDefinition getLanguageType(MappingContext mappingContext, Type<?> graphqlType, String name,
                                            String parentTypeName) {
@@ -218,14 +218,14 @@ public abstract class GraphQLTypeMapper {
     }
 
     /**
-     * Convert GraphQL type to a corresponding language-specific type (java/scala/kotlin/etc)
+     * Convert GraphQL type to a corresponding language-specific type (java/kotlin/etc)
      *
      * @param mappingContext Global mapping context
      * @param graphqlType    GraphQL type
      * @param name           GraphQL type name
      * @param parentTypeName Name of the parent type
      * @param directives     GraphQL field directives
-     * @return Corresponding language-specific type (java/scala/kotlin/etc)
+     * @return Corresponding language-specific type (java/kotlin/etc)
      */
     public NamedDefinition getLanguageType(MappingContext mappingContext, Type<?> graphqlType, String name,
                                            String parentTypeName, List<Directive> directives) {
@@ -235,7 +235,7 @@ public abstract class GraphQLTypeMapper {
     }
 
     /**
-     * Convert GraphQL type to a corresponding language-specific type (java/scala/kotlin/etc)
+     * Convert GraphQL type to a corresponding language-specific type (java/kotlin/etc)
      *
      * @param mappingContext Global mapping context
      * @param graphqlType    GraphQL type
@@ -243,7 +243,7 @@ public abstract class GraphQLTypeMapper {
      * @param parentTypeName Name of the parent type
      * @param mandatory      GraphQL type is non-null
      * @param collection     GraphQL type is collection
-     * @return Corresponding language-specific type (java/scala/kotlin/etc)
+     * @return Corresponding language-specific type (java/kotlin/etc)
      */
     public NamedDefinition getLanguageType(MappingContext mappingContext, Type<?> graphqlType,
                                            String name, String parentTypeName,
@@ -254,7 +254,7 @@ public abstract class GraphQLTypeMapper {
     }
 
     /**
-     * Convert GraphQL type to a corresponding language-specific type (java/scala/kotlin/etc)
+     * Convert GraphQL type to a corresponding language-specific type (java/kotlin/etc)
      *
      * @param mappingContext Global mapping context
      * @param graphqlType    GraphQL type
@@ -263,7 +263,7 @@ public abstract class GraphQLTypeMapper {
      * @param mandatory      GraphQL type is non-null
      * @param collection     GraphQL type is collection
      * @param directives     GraphQL field directives
-     * @return Corresponding language-specific type (java/scala/kotlin/etc)
+     * @return Corresponding language-specific type (java/kotlin/etc)
      */
     public NamedDefinition getLanguageType(MappingContext mappingContext, Type<?> graphqlType,
                                            String name, String parentTypeName,
@@ -291,7 +291,7 @@ public abstract class GraphQLTypeMapper {
     }
 
     /**
-     * Convert GraphQL type to a corresponding language-specific type (java/scala/kotlin/etc)
+     * Convert GraphQL type to a corresponding language-specific type (java/kotlin/etc)
      *
      * @param mappingContext Global mapping context
      * @param graphQLType    GraphQL type
@@ -300,7 +300,7 @@ public abstract class GraphQLTypeMapper {
      * @param mandatory      GraphQL type is non-null
      * @param collection     GraphQL type is collection
      * @param directives     GraphQL field directives
-     * @return Corresponding language-specific type (java/scala/kotlin/etc)
+     * @return Corresponding language-specific type (java/kotlin/etc)
      */
     public NamedDefinition getLanguageType(MappingContext mappingContext, String graphQLType, String name,
                                            String parentTypeName, boolean mandatory, boolean collection,

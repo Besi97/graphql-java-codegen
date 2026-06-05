@@ -170,12 +170,6 @@ public class GraphQLRequestSerializer {
             return serializeEnum((Enum<?>) input);
         } else if (input instanceof String) {
             return escapeJsonString(input.toString());
-        } else if (input.getClass().getName().equals("scala.Some")) { // TODO: move to Scala Serializer
-            // Currently, option only supports primitive types, so that's fine.
-            // Now, this kind of case will appear if and only if Seq[Option[Int]] is
-            return input.toString().replace("Some(", "").replace(")", "");
-        } else if (input.getClass().getName().equals("scala.None$")) {
-            return null;
         } else {
             return input.toString();
         }

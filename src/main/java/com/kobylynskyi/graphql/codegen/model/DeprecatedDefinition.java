@@ -18,7 +18,7 @@ public class DeprecatedDefinition {
     }
 
     /**
-     * field reason Only support in Scala/Kotlin.
+     * field reason Only support in Kotlin.
      *
      * @param annotation Definitions in different languages
      * @param reason     Description in graphql schema Directive

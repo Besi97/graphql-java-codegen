@@ -25,7 +25,7 @@ jobs:
         working-directory: plugins/maven/example-server
         run: mvn versions:set -DnewVersion="${{ github.event.inputs.new_version }}" -DgenerateBackupPoms=false
 
-      - name: Update versions of all Gradle/SBT sub-projects
+      - name: Update versions of all Gradle sub-projects
         run: scripts/update-release-version-in-build-files.sh ${{ github.event.inputs.new_version }}
 
       - name: Commit and push a new version

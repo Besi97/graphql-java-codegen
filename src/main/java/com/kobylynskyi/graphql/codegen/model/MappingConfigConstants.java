@@ -84,11 +84,11 @@ public class MappingConfigConstants {
     public static final GeneratedLanguage DEFAULT_GENERATED_LANGUAGE = GeneratedLanguage.JAVA;
     public static final String DEFAULT_GENERATED_LANGUAGE_STRING = "JAVA";
 
-    // This library is the only one that supports Scala well and is generally used.
+    // This library is the only one that supports Kotlin well and is generally used.
     // There is no need to consider the possibility of switching.
     public static final String DEFAULT_SERIALIZATION_LIBRARY = "JACKSON";
 
-    // Only supported in Kotlin and Scala
+    // Only supported in Kotlin
     public static final boolean DEFAULT_GENERATE_MODEL_OPEN_CLASSES = false;
     public static final String DEFAULT_GENERATE_MODEL_OPEN_CLASSES_STRING = "false";
 

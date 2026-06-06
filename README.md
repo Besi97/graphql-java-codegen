@@ -24,7 +24,7 @@ Following classes can be generated based on your GraphQL schema:
 
 
 ## Features
-* Generate classes in Java, Kotlin or Scala.
+* Generate classes in Java or Kotlin.
 * Recursive schemas lookup by file name pattern.
 * Generate code based on GraphQL schema or GraphQL Query Introspection Result.
 * Generate POJOs with or without: Builder pattern, immutable fields, `toString()`, `equals()` and `hashCode()`, etc.
@@ -42,8 +42,7 @@ Following classes can be generated based on your GraphQL schema:
 ## Supported plugins
 
 * Gradle plugin: [graphql-java-codegen-gradle-plugin](plugins/gradle)
-* Maven plugin: [grapqhl-java-codegen-maven-plugin](plugins/maven) 
-* SBT plugin: [grapqhl-java-codegen-sbt-plugin](plugins/sbt) 
+* Maven plugin: [graphql-java-codegen-maven-plugin](plugins/maven)
 
 
 ## Contributing

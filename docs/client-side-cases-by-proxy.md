@@ -139,9 +139,7 @@ final public class DynamicProxy implements InvocationHandler, ExecutionGraphql {
 
 
     /**
-     * execute graphql request that need jvm compile parameter `-parameters` and Java8 or above
      * you should clean class, and build again after set -parameters
-     * in sbt like this: javacOptions += "-parameters"
      *
      * @param method
      * @param args
@@ -320,7 +318,7 @@ final public class ResolverImplClient {
 }
 ```
 
-3. Then, we use `sbt graphqlcodegen` to generate the client and API.
+3. Then, we use the codegen plugin to generate the client and API.
 
 ```
 Finished processing 1 schema(s) in 788 ms
@@ -357,7 +355,7 @@ Finished processing 1 schema(s) in 788 ms
 [success] CreateMutationRequest.java
 ```
 
-4. Finally, we can use it in Java or Scala.
+4. Finally, we can use it in Java.
 
 we do not need write any other code, just use the generated class to call.
 
@@ -399,148 +397,3 @@ public class HumanResolverJavaApp {
     }
 }
 ```
-
-```scala
-
-import io.github.dreamylost.api.{ HumanQueryResolver, HumansQueryResolver }
-import io.github.dreamylost.model.{ HumanQueryRequest, HumanResponseProjection, HumansQueryRequest }
-
-import scala.collection.JavaConverters._
-
-/**
- * use invoke by proxy in scala
- *
- * @author liguobin@growingio.com
- * @version 1.0,2020/7/28
- */
-object HumanResolverScalaApp extends App {
-
-  //For a model, the projection and maximum depth fields can be common
-  val humanInvokerBuilder = ResolverImplClient.ResolverImplClientBuilder.newBuilder().
-    setProjection(new HumanResponseProjection())
-
-  //Set your own request and resolver for each request
-  println("======human========")
-  val human = humanInvokerBuilder.setRequest(new HumanQueryRequest).build(classOf[HumanQueryResolver]).human("1001")
-  println(human)
-
-  println("======humans========")
-  val humans = humanInvokerBuilder.setRequest(new HumansQueryRequest).build(classOf[HumansQueryResolver]).humans().asScala
-  for (human <- humans) {
-    println("->" + human)
-  }
-}
-```
-
-Here are some auxiliary codes, It depends on the different users.
-
-```java
-public interface ExecutionGraphql {
-
-    default Object executeByHttp(String entityClazzName, GraphQLOperationRequest request, GraphQLResponseProjection projection) {
-        GraphQLRequest graphQLRequest = new GraphQLRequest(request, projection);
-        Future retFuture;
-        Object ret = null;
-        try {
-            retFuture = OkHttp.createExecuteRequest(graphQLRequest, entityClazzName);
-
-            ret = Await.result(retFuture, Duration.Inf());
-        } catch (InterruptedException | TimeoutException e) {
-            e.printStackTrace();
-        }
-        return ret;
-    }
-}
-```
-
-```scala
-object OkHttp extends DataDeserializer {
-
-  var url = "http://localhost:8080/graphql"
-  val defaultCharset = "utf8"
-  val json = MediaType.parse("application/json; charset=utf-8")
-
-  private lazy val defaultTimeout: Long = TimeUnit.MINUTES.toMillis(1)
-  lazy val client: OkHttpClient = buildClient(defaultTimeout, defaultTimeout, defaultTimeout)
-
-  def buildClient(readTimeout: Long, writeTimeout: Long, connectTimeout: Long): OkHttpClient = {
-    new OkHttpClient.Builder()
-      .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
-      .writeTimeout(writeTimeout, TimeUnit.MILLISECONDS)
-      .connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
-      .protocols(util.Arrays.asList(Protocol.HTTP_1_1, Protocol.HTTP_2))
-      .build()
-  }
-
-  def buildRequest[T](request: GraphQLRequest) = {
-    val httpRequestBody = request.toHttpJsonBody
-    println(s"graphql request body: < $httpRequestBody >")
-    val rb = new Request.Builder().url(url).addHeader("Accept", "application/json; charset=utf-8").
-      post(RequestBody.create(httpRequestBody, json))
-    val promise = Promise[T]
-    rb -> promise
-  }
-
-  /**
-   * for java api and proxy
-   *
-   * @param request
-   * @param entityClazzName
-   * @return
-   */
-  def createExecuteRequest(request: GraphQLRequest, entityClazzName: String): Future[Any] = {
-    val (rb, promise) = buildRequest[Any](request)
-    OkHttp.client.newCall(rb.build()).enqueue(new Callback {
-
-      override def onFailure(call: Call, e: IOException): Unit = {
-        promise.failure(e)
-      }
-
-      override def onResponse(call: Call, response: Response): Unit = {
-        if (response.isSuccessful) {
-          val bytes = response.body().bytes()
-          val jsonStr = new String(bytes, defaultCharset)
-          val jsonObject = new JSONObject(jsonStr)
-          val data = jsonObject.getJSONObject("data").get(request.getRequest.getOperationName)
-          promise.success(deserialize(data, entityClazzName))
-
-        } else {
-          Future.successful()
-        }
-
-      }
-    })
-    promise.future
-  }
-}
-```
-
-```scala
-trait DataDeserializer {
-
-  /**
-   * if data is array, entityClazzName is a parameterized type.
-   * because can not deserializer from Collection directly, generic type is lost
-   *
-   * @param data
-   * @param entityClazzName
-   */
-  def deserialize(data: AnyRef, entityClazzName: String) = {
-    val result = new java.util.ArrayList[Any]()
-    val targetReturnClazz = Class.forName(entityClazzName)
-    data match {
-      case array: JSONArray =>
-        for (i <- 0 until array.length()) {
-          val e = Jackson.mapper.readValue(array.get(i).asInstanceOf[JSONObject].toString, targetReturnClazz)
-          result.add(e)
-        }
-        result
-      case _ => Jackson.mapper.readValue(data.asInstanceOf[JSONObject].toString, targetReturnClazz)
-    }
-  }
-
-}
-```
-   
-
-

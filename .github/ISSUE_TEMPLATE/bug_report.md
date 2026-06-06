@@ -26,7 +26,7 @@ assignees: ''
 ## Your Environment and Setup
 
 * **graphql-java-codegen version**: *X.X.X*
-* **Build tool**: *E.g.: Maven/Gradle/SBT*
+* **Build tool**: *E.g.: Maven/Gradle*
 * **Mapping Config**: *E.g.:*
 
 ```xml

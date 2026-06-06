@@ -21,7 +21,7 @@ import static java.util.Collections.singletonList;
 class GraphQLCodegenOpenclassesTest {
 
     private final File outputBuildDir = new File("build/generated");
-    private final File outputScalaClassesDir = new File("build/generated/com/github/graphql");
+    private final File outputKotlinClassesDir = new File("build/generated/com/github/graphql");
     private final MappingConfig mappingConfig = new MappingConfig();
 
     @BeforeEach
@@ -46,7 +46,7 @@ class GraphQLCodegenOpenclassesTest {
     void generate_MultipleInterfacesPerType() throws Exception {
         new KotlinGraphQLCodegen(singletonList("src/test/resources/schemas/github.graphqls"),
                 outputBuildDir, mappingConfig, TestUtils.getStaticGeneratedInfo(mappingConfig)).generate();
-        File[] files = Objects.requireNonNull(outputScalaClassesDir.listFiles());
+        File[] files = Objects.requireNonNull(outputKotlinClassesDir.listFiles());
 
         assertSameTrimmedContent(new File("src/test/resources/expected-classes/kt/Commit_no_final_class.kt.txt"),
                 getFileByName(files, "Commit.kt"));

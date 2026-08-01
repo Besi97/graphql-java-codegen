@@ -11,7 +11,7 @@ import graphql.language.StringValue;
 /**
  * Builder of @deprecated annotation definition
  */
-@SuppressWarnings({"java:S1133", "java:S1123"}) // sonar treats this is a deprecated method
+@SuppressWarnings({"java:S1133", "java:S1123"})
 public class DeprecatedDefinitionBuilder {
 
     private static final String REASON = "reason";

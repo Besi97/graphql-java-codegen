@@ -1,32 +1,25 @@
 name: Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      release_version:
-        description: 'Release version'
-        default: 'X.X.X'
-        required: true
-      release_branch:
-        description: 'Release branch'
-        default: 'main'
-        required: true
-      publish_library:
-        description: 'Publish library'
-        default: 'Y'
-        required: true
-      publish_gradle_plugin:
-        description: 'Publish Gradle Plugin'
-        default: 'Y'
-        required: true
+  release:
+    types:
+      - published
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.CI_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.CI_BOT_PRIVATE_KEY_PEM }}
+
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.release_branch }}
+          ref: ${{ github.event.release.target_commitish }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -40,37 +33,37 @@ jobs:
           path: ~/.gradle
           key: gradle
 
+      - name: Extract version from tag
+        id: version
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          VERSION="${TAG#v}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Release version: $VERSION"
+
       - name: Set up GPG
         run: |
-          echo ${{ github.workspace }}
-          # gpg init
-          mkdir ~/.gnupg && echo use-agent >> ~/.gnupg/gpg.conf
+          mkdir -p ~/.gnupg
+          echo use-agent >> ~/.gnupg/gpg.conf
           echo pinentry-mode loopback >> ~/.gnupg/gpg.conf
           echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf
           echo RELOADAGENT | gpg-connect-agent
           echo ${SIGNING_KEY} | awk '{gsub(/\\n/,"\n")}1'| gpg --dearmor > ${{ github.workspace }}/secretKeyRingFile.gpg
-          gpg --import  --pinentry-mode loopback --batch --passphrase '${SIGNING_PASSWORD}' ${{ github.workspace }}/secretKeyRingFile.gpg
-          ls -al ${{ github.workspace }}
-          ls -al ~/.gnupg/
+          gpg --import --pinentry-mode loopback --batch --passphrase '${SIGNING_PASSWORD}' ${{ github.workspace }}/secretKeyRingFile.gpg
         env:
           SIGNING_KEY: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
           SIGNING_PASSWORD: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
 
       - name: Configure Git
         run: |
-          git config --global user.name 'Bogdan Kobylynskyi'
-          git config --global user.email 'kobylynskyi@users.noreply.github.com'
+          git config --global user.name 'graphql-java-codegen-ci-bot[bot]'
+          git config --global user.email 'graphql-java-codegen-ci-bot[bot]@users.noreply.github.com'
 
-      - name: Update versions of all Gradle sub-projects
-        run: scripts/update-release-version-in-build-files.sh ${{ github.event.inputs.release_version }}
+      - name: Update versions in build files
+        run: scripts/update-release-version-in-build-files.sh ${{ steps.version.outputs.version }}
 
-      - name: Update versions in all README files
-        run: scripts/update-release-version-in-readme.sh ${{ github.event.inputs.release_version }}
-
-      #
-      # VERSIONS UPDATED
-      # NOW WE ARE READY FOR THE FINAL BUILD
-      #
+      - name: Update versions in README files
+        run: scripts/update-release-version-in-readme.sh ${{ steps.version.outputs.version }}
 
       - name: Build library
         run: ./gradlew build publishToMavenLocal --warning-mode all
@@ -79,31 +72,18 @@ jobs:
         run: ./gradlew -p plugins/gradle/graphql-java-codegen-gradle-plugin build publishToMavenLocal --warning-mode all
 
       - name: Build gradle example-server
-        if: github.event.inputs.publish_gradle_plugin == 'Y'
         run: ./gradlew -p plugins/gradle/example-server test --warning-mode all
 
       - name: Build gradle example-client
-        if: github.event.inputs.publish_gradle_plugin == 'Y'
         run: ./gradlew -p plugins/gradle/example-client test --warning-mode all
 
       - name: Build gradle example-client-kotlin
-        if: github.event.inputs.publish_gradle_plugin == 'Y'
         run: ./gradlew -p plugins/gradle/example-client-kotlin build --warning-mode all
 
-      #
-      # BUILD OF RELEASE VERSION COMPLETED
-      # SO WE CAN COMMIT THEM
-      #
-
       - name: Commit release version
-        run: git commit -am "Bump version to ${{ github.event.inputs.release_version }}"
+        run: git commit -am "Release ${{ github.event.release.tag_name }}"
 
-      #
-      # VERSIONS ARE IN THE RELEASE STATE AND READY TO PUBLISH
-      #
-
-      - name: Release library
-        if: github.event.inputs.publish_library == 'Y'
+      - name: Release library to Maven Central
         run: |
           ./gradlew publish \
                 -Dorg.gradle.internal.publish.checksums.insecure=true \
@@ -114,19 +94,19 @@ jobs:
                 -Psigning.secretKeyRingFile=${{ github.workspace }}/secretKeyRingFile.gpg
 
       - name: Release Gradle plugin
-        if: github.event.inputs.publish_gradle_plugin == 'Y'
         run: |
           ./gradlew -p plugins/gradle/graphql-java-codegen-gradle-plugin publishPlugins \
               -Dorg.gradle.internal.publish.checksums.insecure=true \
-              -Pgradle.publish.key=${{ secrets.GRADLE_PUBLISH_KEY}} \
+              -Pgradle.publish.key=${{ secrets.GRADLE_PUBLISH_KEY }} \
               -Pgradle.publish.secret=${{ secrets.GRADLE_PUBLISH_SECRET }}
 
-      #
-      # PUBLISH OF RELEASE VERSION COMPLETED
-      # NOW PUSHING THE RELEASE VERSION BACK TO THE REPOSITORY
-      #
-
       - name: Push release version
+        run: git push
+
+      - name: Bump to next SNAPSHOT version
+        run: scripts/bump-to-next-snapshot-version.sh
+
+      - name: Commit and push SNAPSHOT bump
         run: |
+          git commit -am "Bump to next development version"
           git push
-          git push --tags

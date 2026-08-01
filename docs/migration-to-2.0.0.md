@@ -7,14 +7,12 @@ version 1.x.x then please follow steps below.
 ### 1. Update plugin and library versions
 
 As per plugin description: [Gradle](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle)
-, [Maven](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/maven)
 
 ### 2. Update plugin configuration (only for client-side codegen)
 
 If you have used `generateRequests` config option, please replace it with `generateClient`:
 Plugin | Old config | Replaced by
 ------ | ---------- | -----------
-Maven  | `<generateRequests>true</generateRequests>` | `<generateClient>true</generateClient>` |
 Gradle | `generateRequests=true` | `generateClient=true` |
 
 ### 3. Regenerate the code

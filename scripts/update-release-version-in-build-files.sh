@@ -12,14 +12,14 @@ set_version_in_file "build.gradle" "def graphqlCodegenVersion = '"
 
 set_version_in_file "plugins/gradle/graphql-java-codegen-gradle-plugin/build.gradle" "def graphqlCodegenGradlePluginVersion = '"
 
-set_version_in_file "plugins/gradle/example-server/build.gradle" "io.github.kobylynskyi.graphql.codegen\" version \""
+set_version_in_file "plugins/gradle/example-server/build.gradle" "io.github.besi97.graphql.codegen\" version \""
 
-set_version_in_file "plugins/gradle/example-client/build.gradle" "implementation \"io.github.kobylynskyi:graphql-java-codegen:"
-set_version_in_file "plugins/gradle/example-client/build.gradle" "io.github.kobylynskyi.graphql.codegen\" version \""
+set_version_in_file "plugins/gradle/example-client/build.gradle" "implementation \"io.github.besi97:graphql-java-codegen:"
+set_version_in_file "plugins/gradle/example-client/build.gradle" "io.github.besi97.graphql.codegen\" version \""
 
-set_version_in_file "plugins/gradle/example-client-kotlin/build.gradle" "id \"io.github.kobylynskyi.graphql.codegen\" version \""
+set_version_in_file "plugins/gradle/example-client-kotlin/build.gradle" "id \"io.github.besi97.graphql.codegen\" version \""
 set_version_in_file "plugins/gradle/example-client-kotlin/build.gradle" "def graphqlCodegenClientKotlinVersion = '"
-set_version_in_file "plugins/gradle/example-client-kotlin/build.gradle" "implementation \"io.github.kobylynskyi:graphql-java-codegen:"
+set_version_in_file "plugins/gradle/example-client-kotlin/build.gradle" "implementation \"io.github.besi97:graphql-java-codegen:"
 
 # Exit clean
 exit 0

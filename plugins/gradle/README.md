@@ -1,7 +1,7 @@
 # GraphQL Codegen Gradle plugin #
 
-![Build](https://github.com/kobylynskyi/graphql-java-codegen/workflows/Build/badge.svg)
-[![Gradle Plugins](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/io/github/kobylynskyi/graphql-java-codegen-gradle-plugin/maven-metadata.xml.svg?label=gradle)](https://plugins.gradle.org/plugin/io.github.kobylynskyi.graphql.codegen)
+![Build](https://github.com/Besi97/graphql-java-codegen/workflows/Build/badge.svg)
+[![Gradle Plugins](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/io/github/besi97/graphql-java-codegen-gradle-plugin/maven-metadata.xml.svg?label=gradle)](https://plugins.gradle.org/plugin/io.github.besi97.graphql.codegen)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 * [Plugin Setup](#plugin-setup)
@@ -17,7 +17,7 @@
 
 ```groovy
 plugins {
-  id "io.github.kobylynskyi.graphql.codegen" version "5.10.0"
+  id "io.github.besi97.graphql.codegen" version "5.10.0"
 }
 ```
 
@@ -31,11 +31,11 @@ buildscript {
     }
   }
   dependencies {
-    classpath "io.github.kobylynskyi.graphql.codegen:graphql-codegen-gradle-plugin:5.10.0"
+    classpath "io.github.besi97.graphql.codegen:graphql-codegen-gradle-plugin:5.10.0"
   }
 }
 
-apply plugin: "io.github.kobylynskyi.graphql.codegen"
+apply plugin: "io.github.besi97.graphql.codegen"
 ```
 
 ### Plugin Options
@@ -49,7 +49,7 @@ Please refer to [Codegen Options](../../docs/codegen-options.md)
 ```groovy
 graphqlCodegen {
     // all config options: 
-    // https://github.com/kobylynskyi/graphql-java-codegen/blob/main/docs/codegen-options.md
+    // https://github.com/Besi97/graphql-java-codegen/blob/main/docs/codegen-options.md
     graphqlSchemas.includePattern = "schema\\.graphqls"
     outputDir = new File("$buildDir/generated")
     packageName = "com.example.graphql.model"
@@ -78,7 +78,7 @@ You can also refer to build.gradle files in example projects: [example-client/bu
 ```kotlin
 tasks.named<GraphQLCodegenGradleTask>("graphqlCodegen") {
     // all config options: 
-    // https://github.com/kobylynskyi/graphql-java-codegen/blob/main/docs/codegen-options.md
+    // https://github.com/Besi97/graphql-java-codegen/blob/main/docs/codegen-options.md
     graphqlSchemaPaths = listOf("$projectDir/src/main/resources/graphql/schema.graphqls")
     outputDir = File("$buildDir/generated")
     packageName = "com.example.graphql.model"
@@ -104,15 +104,15 @@ tasks.named<JavaCompile>("compileJava") {
 [example-server](example-server):
 
 * [Plugin configuration in build.gradle](example-server/build.gradle)
-* [GraphQL Resolver classes that implement generated interfaces](example-server/src/main/java/io/github/kobylynskyi/product/graphql/resolvers)
+* [GraphQL Resolver classes that implement generated interfaces](example-server/src/main/java/io/github/besi97/product/graphql/resolvers)
 
 #### GraphQL **client** code generation
 
 [example-client](example-client):
 
 * [Plugin configuration in build.gradle](example-client/build.gradle)
-* [Building GraphQL request and parsing response using Spring RestTemplate](example-client/src/main/java/io/github/kobylynskyi/order/external/product/ProductServiceGraphQLClient.java)
-* [Building GraphQL request and parsing response using RestAssured](example-client/src/test/java/io/github/kobylynskyi/order/service/CreateProductIntegrationTest.java)
+* [Building GraphQL request and parsing response using Spring RestTemplate](example-client/src/main/java/io/github/besi97/order/external/product/ProductServiceGraphQLClient.java)
+* [Building GraphQL request and parsing response using RestAssured](example-client/src/test/java/io/github/besi97/order/service/CreateProductIntegrationTest.java)
 
 ### Different configurations for graphql schemas
 

@@ -15,7 +15,7 @@ import ${import}.*
 </#if>
 <#if generatedAnnotation && generatedInfo.getGeneratedType()?has_content>
 @${generatedInfo.getGeneratedType()}(
-    value = ["com.kobylynskyi.graphql.codegen.GraphQLCodegen"],
+    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"],
     date = "${generatedInfo.getDateTime()}"
 )
 </#if>

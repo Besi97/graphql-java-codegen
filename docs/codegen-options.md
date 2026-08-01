@@ -209,7 +209,7 @@ JSON:
 ```json
 {
   "generateApis": true,
-  "packageName": "com.kobylynskyi.graphql.testconfigjson",
+  "packageName": "io.github.besi97.graphql.testconfigjson",
   "customTypesMapping": {
     "Price.amount": "java.math.BigDecimal"
   }

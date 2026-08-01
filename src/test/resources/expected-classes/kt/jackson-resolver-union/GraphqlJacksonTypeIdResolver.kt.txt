@@ -1,4 +1,4 @@
-package com.kobylynskyi.graphql.unionresolver
+package io.github.besi97.graphql.unionresolver
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.databind.DatabindContext
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JavaType
 import com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase
 
 @javax.annotation.Generated(
-    value = ["com.kobylynskyi.graphql.codegen.GraphQLCodegen"],
+    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"],
     date = "2020-12-31T23:59:59-0500"
 )
 open class GraphqlJacksonTypeIdResolver : TypeIdResolverBase() {
@@ -19,7 +19,7 @@ open class GraphqlJacksonTypeIdResolver : TypeIdResolverBase() {
 
     override fun typeFromId(context: DatabindContext, typename: String): JavaType? {
         return try {
-            val clazz = Class.forName("com.kobylynskyi.graphql.unionresolver." +
+            val clazz = Class.forName("io.github.besi97.graphql.unionresolver." +
                     typename)
             context.constructSpecializedType(superType, clazz)
         } catch (e: ClassNotFoundException) {

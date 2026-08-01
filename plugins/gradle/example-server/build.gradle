@@ -5,11 +5,11 @@ plugins {
 
     //
     // use the latest available version:
-    // https://plugins.gradle.org/plugin/io.github.kobylynskyi.graphql.codegen
-    id "io.github.kobylynskyi.graphql.codegen" version "5.10.1-SNAPSHOT"
+    // https://plugins.gradle.org/plugin/io.github.besi97.graphql.codegen
+    id "io.github.besi97.graphql.codegen" version "5.10.1-SNAPSHOT"
 }
 
-mainClassName = "io.github.kobylynskyi.product.Application"
+mainClassName = "io.github.besi97.product.Application"
 
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web:2.7.18"
@@ -37,8 +37,8 @@ sourceSets.main.java.srcDir "$buildDir/generated"
 graphqlCodegen {
     graphqlSchemaPaths = ["$projectDir/src/main/resources/schema.graphqls".toString()]
     outputDir = new File("$buildDir/generated")
-    apiPackageName = "io.github.kobylynskyi.product.graphql.api"
-    modelPackageName = "io.github.kobylynskyi.product.graphql.model"
+    apiPackageName = "io.github.besi97.product.graphql.api"
+    modelPackageName = "io.github.besi97.product.graphql.model"
     customTypesMapping = [
             DateTime: "java.util.Date"
     ]

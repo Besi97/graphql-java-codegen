@@ -2,8 +2,8 @@
 
 [![Donate](https://img.shields.io/badge/Donate-green.svg)](https://send.monobank.ua/jar/2bpWyBqBp3)
 
-![Build](https://github.com/kobylynskyi/graphql-java-codegen/workflows/Build/badge.svg)
-[![Discussions](https://img.shields.io/badge/github-discussions-green)](https://github.com/kobylynskyi/graphql-java-codegen/discussions)
+![Build](https://github.com/Besi97/graphql-java-codegen/workflows/Build/badge.svg)
+[![Discussions](https://img.shields.io/badge/github-discussions-green)](https://github.com/Besi97/graphql-java-codegen/discussions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 

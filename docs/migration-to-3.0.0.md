@@ -1,5 +1,5 @@
 Some breaking changes were introduced
-in [Release 3.0.0](https://github.com/kobylynskyi/graphql-java-codegen/releases/tag/v3.0.0). So if you were using
+in [Release 3.0.0](https://github.com/Besi97/graphql-java-codegen/releases/tag/v3.0.0). So if you were using
 version 2.x.x then please follow steps below. Note: if you are migrating from version 1.x.x, then please also
 follow [2.0.0 migration guide](migration-to-2.0.0.md) first.
 
@@ -7,7 +7,7 @@ follow [2.0.0 migration guide](migration-to-2.0.0.md) first.
 
 ### 1. Update plugin and library versions
 
-As per plugin description: [Gradle](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle)
+As per plugin description: [Gradle](https://github.com/Besi97/graphql-java-codegen/tree/main/plugins/gradle)
 
 ### 2. Remove `generateAsyncApis` and rename `apiAsyncReturnType`/`apiAsyncReturnListType`
 
@@ -58,7 +58,7 @@ by providing an array of annotations in the following format:
 customAnnotationsMapping = [
     "Character": "com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, property = \"__typename\")"
                + System.lineSeparator()
-               + "com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(io.github.kobylynskyi.order.external.starwars.CharacterTypeResolver.class)"
+               + "com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(io.github.besi97.order.external.starwars.CharacterTypeResolver.class)"
 ]
 directiveAnnotationsMapping = [
     "auth": "org.springframework.security.access.annotation.Secured({{roles}})"
@@ -69,7 +69,7 @@ directiveAnnotationsMapping = [
 customAnnotationsMapping = [
     "Character": [
             "com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, property = \"__typename\")",
-            "com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(io.github.kobylynskyi.order.external.starwars.CharacterTypeResolver.class)"
+            "com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(io.github.besi97.order.external.starwars.CharacterTypeResolver.class)"
     ]
 ]
 directiveAnnotationsMapping = [
@@ -87,5 +87,5 @@ Run project build so that GraphQL classes are regenerated.
 
 ---
 
-Feel free to ask any questions in [GitHub Discussions](https://github.com/kobylynskyi/graphql-java-codegen/discussions)
-or [create an issue](https://github.com/kobylynskyi/graphql-java-codegen/issues) if you discover some problems.
+Feel free to ask any questions in [GitHub Discussions](https://github.com/Besi97/graphql-java-codegen/discussions)
+or [create an issue](https://github.com/Besi97/graphql-java-codegen/issues) if you discover some problems.

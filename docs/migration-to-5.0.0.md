@@ -1,5 +1,5 @@
 Some breaking changes were introduced
-in [Release 5.0.0](https://github.com/kobylynskyi/graphql-java-codegen/releases/tag/v5.0.0). So if you were using
+in [Release 5.0.0](https://github.com/Besi97/graphql-java-codegen/releases/tag/v5.0.0). So if you were using
 version 4.x.x then please follow steps below. Note: if you are migrating from version 3.x.x or earlier, then please also
 follow [4.0.0 migration guide](migration-to-4.0.0.md) first.
 
@@ -13,7 +13,7 @@ Otherwise - feel free to use graphql-java-codegen-5.0.0 without any breaking cha
 ### 1. Update plugin and library versions
 
 As per plugin description: 
-[Gradle](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle)
+[Gradle](https://github.com/Besi97/graphql-java-codegen/tree/main/plugins/gradle)
 
 ### 2. Rename jsonConfigurationFile => configurationFiles
 
@@ -36,5 +36,5 @@ Run project build so that GraphQL classes are regenerated and your code compiles
 
 ---
 
-Feel free to ask any questions in [GitHub Discussions](https://github.com/kobylynskyi/graphql-java-codegen/discussions)
-or [create an issue](https://github.com/kobylynskyi/graphql-java-codegen/issues) if you discover some problems.
+Feel free to ask any questions in [GitHub Discussions](https://github.com/Besi97/graphql-java-codegen/discussions)
+or [create an issue](https://github.com/Besi97/graphql-java-codegen/issues) if you discover some problems.

@@ -6,7 +6,7 @@ updates:
       interval: "monthly"
     target-branch: "main"
     reviewers:
-      - "kobylynskyi"
+      - "Besi97"
 
   - package-ecosystem: "gradle"
     directory: "plugins/gradle/graphql-java-codegen-gradle-plugin/"
@@ -14,7 +14,7 @@ updates:
       interval: "monthly"
     target-branch: "main"
     reviewers:
-      - "kobylynskyi"
+      - "Besi97"
 
   - package-ecosystem: "gradle"
     directory: "plugins/gradle/example-client/"
@@ -22,7 +22,7 @@ updates:
       interval: "monthly"
     target-branch: "main"
     reviewers:
-      - "kobylynskyi"
+      - "Besi97"
 
   - package-ecosystem: "gradle"
     directory: "plugins/gradle/example-server/"
@@ -30,7 +30,7 @@ updates:
       interval: "monthly"
     target-branch: "main"
     reviewers:
-      - "kobylynskyi"
+      - "Besi97"
 
   - package-ecosystem: "gradle"
     directory: "plugins/gradle/example-client-kotlin/"
@@ -38,7 +38,7 @@ updates:
       interval: "monthly"
     target-branch: "main"
     reviewers:
-      - "kobylynskyi"
+      - "Besi97"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -46,4 +46,4 @@ updates:
       interval: "monthly"
     target-branch: "main"
     reviewers:
-      - "kobylynskyi"
+      - "Besi97"

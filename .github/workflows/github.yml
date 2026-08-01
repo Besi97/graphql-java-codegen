@@ -29,26 +29,8 @@ jobs:
           path: ~/.gradle
           key: gradle
 
-      - name: Maven cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: m2
-
       - name: Build library
         run: ./gradlew build publishToMavenLocal --warning-mode all
-
-      - name: Build maven plugin
-        working-directory: plugins/maven/graphql-java-codegen-maven-plugin
-        run: mvn install
-
-      - name: Build maven example-server
-        working-directory: plugins/maven/example-server
-        run: mvn package
-
-      - name: Build maven example-client
-        working-directory: plugins/maven/example-client
-        run: mvn package
 
       - name: Build gradle plugin
         run: ./gradlew -p plugins/gradle/graphql-java-codegen-gradle-plugin build publishToMavenLocal --warning-mode all
@@ -82,12 +64,6 @@ jobs:
         with:
           path: ~/.gradle
           key: gradle
-
-      - name: Maven cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: m2
 
       - name: Generate code coverage report
         run: ./gradlew codeCoverageReport --stacktrace

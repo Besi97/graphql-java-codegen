@@ -8,7 +8,6 @@ follow [2.0.0 migration guide](migration-to-2.0.0.md) first.
 ### 1. Update plugin and library versions
 
 As per plugin description: [Gradle](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle)
-, [Maven](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/maven)
 
 ### 2. Remove `generateAsyncApis` and rename `apiAsyncReturnType`/`apiAsyncReturnListType`
 
@@ -51,38 +50,6 @@ apiReturnListType=reactor.core.publisher.Flux
 
 If you have used `customAnnotationsMapping` or `directiveAnnotationsMapping` config options, then it should be updated
 by providing an array of annotations in the following format:
-
-#### Maven
-
-```xml
-<configuration>
-    <!--OLD APPROACH-->
-    <customAnnotationsMapping>
-        <Character>
-            com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, property = "__typename")
-            com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(io.github.kobylynskyi.order.external.starwars.CharacterTypeResolver.class)
-        </Character>
-    </customAnnotationsMapping>
-    <directiveAnnotationsMapping>
-        <auth>org.springframework.security.access.annotation.Secured({{roles}})</auth>
-    </directiveAnnotationsMapping>
-    <!--OLD APPROACH-->
-
-    <!--NEW APPROACH-->
-    <customAnnotationsMapping>
-        <Character>
-            <annotation1>com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, property = "__typename")</annotation1>
-            <annotation2>com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(io.github.kobylynskyi.order.external.starwars.CharacterTypeResolver.class)</annotation2>
-        </Character>
-    </customAnnotationsMapping>
-    <directiveAnnotationsMapping>
-        <auth>
-            <annotation>org.springframework.security.access.annotation.Secured({{roles}})</annotation>
-        </auth>
-    </directiveAnnotationsMapping>
-    <!--NEW APPROACH-->
-</configuration>
-```
 
 #### Gradle
 

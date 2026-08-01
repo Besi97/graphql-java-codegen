@@ -13,26 +13,9 @@ Otherwise - feel free to use graphql-java-codegen-5.0.0 without any breaking cha
 ### 1. Update plugin and library versions
 
 As per plugin description: 
-[Gradle](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle), 
-[Maven](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/maven)
+[Gradle](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle)
 
 ### 2. Rename jsonConfigurationFile => configurationFiles
-
-#### Maven
-
-```xml
-<configuration>
-    <!--OLD APPROACH-->
-    <jsonConfigurationFile>src/main/resources/mappingConfig.json</jsonConfigurationFile>
-    <!--OLD APPROACH-->
-
-    <!--NEW APPROACH-->
-    <configurationFiles>
-      <configurationFile>src/main/resources/mappingConfig.json</configurationFile>
-    </configurationFiles>
-    <!--NEW APPROACH-->
-</configuration>
-```
 
 #### Gradle
 

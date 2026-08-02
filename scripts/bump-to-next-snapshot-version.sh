@@ -4,7 +4,7 @@ CURRENT_VERSION=$(grep "def graphqlCodegenVersion = '" build.gradle | sed "s/.*'
 
 MAJOR=$(echo "$CURRENT_VERSION" | cut -d. -f1)
 MINOR=$(echo "$CURRENT_VERSION" | cut -d. -f2)
-PATCH=$(echo "$CURRENT_VERSION" | cut -d. -f3)
+PATCH=$(echo "$CURRENT_VERSION" | cut -d. -f3 | sed 's/-.*//')
 
 NEXT_PATCH=$((PATCH + 1))
 NEXT_VERSION="$MAJOR.$MINOR.$NEXT_PATCH-SNAPSHOT"

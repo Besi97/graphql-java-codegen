@@ -4,7 +4,7 @@ RELEASE_VERSION=$1
 RELEASE_VERSION_ESCAPED=${RELEASE_VERSION//./\\.}
 
 set_version_in_file() {
-  sed -i "s/$2[A-Z0-9.\-]*/$2$RELEASE_VERSION_ESCAPED/g" "$1"
+  sed -i "s/$2[A-Za-z0-9.\-]*/$2$RELEASE_VERSION_ESCAPED/g" "$1"
   echo "Updated version in $1"
 }
 

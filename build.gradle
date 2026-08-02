@@ -8,7 +8,7 @@ plugins {
     id "maven-publish"
 }
 
-def graphqlCodegenVersion = '6.0.0-rc1' // This variable used in the automatic release process
+def graphqlCodegenVersion = '6.0.1-SNAPSHOT' // This variable used in the automatic release process
 
 group = "io.github.besi97"
 version = graphqlCodegenVersion

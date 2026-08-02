@@ -15,7 +15,7 @@ apply plugin: "java"
 apply plugin: "idea"
 apply plugin: "maven-publish"
 
-def graphqlCodegenGradlePluginVersion = '6.0.0-rc1' // This variable used in the automatic release process
+def graphqlCodegenGradlePluginVersion = '6.0.1-SNAPSHOT' // This variable used in the automatic release process
 
 group = "io.github.besi97"
 version = graphqlCodegenGradlePluginVersion

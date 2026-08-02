@@ -44,11 +44,12 @@ jobs:
       - name: Set up GPG
         run: |
           mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
           echo use-agent >> ~/.gnupg/gpg.conf
           echo pinentry-mode loopback >> ~/.gnupg/gpg.conf
           echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf
           echo RELOADAGENT | gpg-connect-agent
-          echo ${SIGNING_KEY} | awk '{gsub(/\\n/,"\n")}1'| gpg --dearmor > ${{ github.workspace }}/secretKeyRingFile.gpg
+          echo "$SIGNING_KEY" | gpg --dearmor > ${{ github.workspace }}/secretKeyRingFile.gpg
           gpg --import --pinentry-mode loopback --batch --passphrase '${SIGNING_PASSWORD}' ${{ github.workspace }}/secretKeyRingFile.gpg
         env:
           SIGNING_KEY: ${{ secrets.OSSRH_GPG_SECRET_KEY }}

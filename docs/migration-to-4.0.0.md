@@ -1,5 +1,5 @@
 Some breaking changes were introduced
-in [Release 4.0.0](https://github.com/kobylynskyi/graphql-java-codegen/releases/tag/v4.0.0). So if you were using
+in [Release 4.0.0](https://github.com/Besi97/graphql-java-codegen/releases/tag/v4.0.0). So if you were using
 version 3.x.x then please follow steps below. Note: if you are migrating from version 2.x.x, then please also
 follow [3.0.0 migration guide](migration-to-3.0.0.md) first.
 
@@ -7,7 +7,7 @@ follow [3.0.0 migration guide](migration-to-3.0.0.md) first.
 
 ### 1. Update plugin and library versions
 
-As per plugin description: [Gradle](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle)
+As per plugin description: [Gradle](https://github.com/Besi97/graphql-java-codegen/tree/main/plugins/gradle)
 
 ### 2. Change GraphQL Resolvers containing non-null GraphQL types to primitive Java types
 
@@ -89,5 +89,5 @@ Run project build so that GraphQL classes are regenerated and your code compiles
 
 ---
 
-Feel free to ask any questions in [GitHub Discussions](https://github.com/kobylynskyi/graphql-java-codegen/discussions)
-or [create an issue](https://github.com/kobylynskyi/graphql-java-codegen/issues) if you discover some problems.
+Feel free to ask any questions in [GitHub Discussions](https://github.com/Besi97/graphql-java-codegen/discussions)
+or [create an issue](https://github.com/Besi97/graphql-java-codegen/issues) if you discover some problems.

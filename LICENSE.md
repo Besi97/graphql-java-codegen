@@ -1,6 +1,10 @@
 MIT License
 
 Copyright (c) 2019 Bogdan Kobylynskyi
+Copyright (c) 2024 Dávid Besenyei
+
+Based on graphql-java-codegen, originally created by Bogdan Kobylynskyi
+at https://github.com/kobylynskyi/graphql-java-codegen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -8,8 +8,8 @@ set_version_in_file() {
   echo "Updated version in $1"
 }
 
-set_version_in_file "plugins/gradle/README.md" "id \"io.github.kobylynskyi.graphql.codegen\" version \""
-set_version_in_file "plugins/gradle/README.md" "io.github.kobylynskyi.graphql.codegen:graphql-codegen-gradle-plugin:"
+set_version_in_file "plugins/gradle/README.md" "id \"io.github.besi97.graphql.codegen\" version \""
+set_version_in_file "plugins/gradle/README.md" "io.github.besi97.graphql.codegen:graphql-codegen-gradle-plugin:"
 
 # Exit clean
 exit 0

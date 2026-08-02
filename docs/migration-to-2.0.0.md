@@ -1,12 +1,12 @@
 Some breaking changes were introduced
-in [Release 2.0.0](https://github.com/kobylynskyi/graphql-java-codegen/releases/tag/v2.0.0). So if you were using
+in [Release 2.0.0](https://github.com/Besi97/graphql-java-codegen/releases/tag/v2.0.0). So if you were using
 version 1.x.x then please follow steps below.
 
 ## Migration steps
 
 ### 1. Update plugin and library versions
 
-As per plugin description: [Gradle](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle)
+As per plugin description: [Gradle](https://github.com/Besi97/graphql-java-codegen/tree/main/plugins/gradle)
 
 ### 2. Update plugin configuration (only for client-side codegen)
 
@@ -68,5 +68,5 @@ public class PersonResolver implements PersonsByIdsQueryResolver {
 
 ---
 
-Feel free to ask any questions in [GitHub Discussions](https://github.com/kobylynskyi/graphql-java-codegen/discussions)
-or [create an issue](https://github.com/kobylynskyi/graphql-java-codegen/issues) if you discover some problems.
+Feel free to ask any questions in [GitHub Discussions](https://github.com/Besi97/graphql-java-codegen/discussions)
+or [create an issue](https://github.com/Besi97/graphql-java-codegen/issues) if you discover some problems.

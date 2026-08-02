@@ -1,4 +1,4 @@
-package com.kobylynskyi.graphql.test1;
+package io.github.besi97.graphql.test1;
 
 
 /**

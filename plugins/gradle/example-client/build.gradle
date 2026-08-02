@@ -1,4 +1,4 @@
-import io.github.kobylynskyi.graphql.codegen.gradle.GraphQLCodegenGradleTask
+import io.github.besi97.graphql.codegen.gradle.GraphQLCodegenGradleTask
 
 plugins {
     id "java"
@@ -6,11 +6,11 @@ plugins {
     id "application"
 
     // use the latest available version:
-    // https://plugins.gradle.org/plugin/io.github.kobylynskyi.graphql.codegen
-    id "io.github.kobylynskyi.graphql.codegen" version "5.10.1-SNAPSHOT"
+    // https://plugins.gradle.org/plugin/io.github.besi97.graphql.codegen
+    id "io.github.besi97.graphql.codegen" version "5.10.1-SNAPSHOT"
 }
 
-mainClassName = "io.github.kobylynskyi.order.Application"
+mainClassName = "io.github.besi97.order.Application"
 
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web:2.7.10"
@@ -21,8 +21,8 @@ dependencies {
     implementation "com.graphql-java:graphql-java-extended-scalars:20.2"
 
     // use the latest available version:
-    // https://search.maven.org/artifact/io.github.kobylynskyi/graphql-java-codegen
-    implementation "io.github.kobylynskyi:graphql-java-codegen:5.10.1-SNAPSHOT"
+    // https://search.maven.org/artifact/io.github.besi97/graphql-java-codegen
+    implementation "io.github.besi97:graphql-java-codegen:5.10.1-SNAPSHOT"
 
     implementation "org.apache.httpcomponents:httpclient:4.5.14"
     implementation "javax.validation:validation-api:2.0.1.Final"
@@ -47,7 +47,7 @@ sourceSets.main.java.srcDir "$buildDir/generated-client"
 task graphqlCodegenProductService(type: GraphQLCodegenGradleTask) {
     graphqlSchemas.includePattern = "schema-product-service\\.graphqls"
     outputDir = new File("$buildDir/generated-client")
-    modelPackageName = "io.github.kobylynskyi.product.graphql.model"
+    modelPackageName = "io.github.besi97.product.graphql.model"
     customTypesMapping = [
             DateTime: "java.util.Date"
     ]
@@ -66,8 +66,8 @@ sourceSets.main.java.srcDir "$buildDir/generated-server"
 task graphqlCodegenOrderService(type: GraphQLCodegenGradleTask) {
     graphqlSchemas.includePattern = "schema\\.graphqls"
     outputDir = new File("$buildDir/generated-server")
-    apiPackageName = "io.github.kobylynskyi.order.graphql.api"
-    modelPackageName = "io.github.kobylynskyi.order.graphql.model"
+    apiPackageName = "io.github.besi97.order.graphql.api"
+    modelPackageName = "io.github.besi97.order.graphql.model"
     customTypesMapping = [
             DateTime: "java.util.Date"
     ]
@@ -82,11 +82,11 @@ sourceSets.main.java.srcDir "$buildDir/generated-client-starwars"
 task graphqlCodegenStarwarsService(type: GraphQLCodegenGradleTask) {
     graphqlSchemas.includePattern = "schema-starwars-service\\.graphqls"
     outputDir = new File("$buildDir/generated-client-starwars")
-    packageName = "io.github.kobylynskyi.starwars.graphql"
+    packageName = "io.github.besi97.starwars.graphql"
     customAnnotationsMapping = [
             "Character": [
                     "@com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, property = \"__typename\")",
-                    "@com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(io.github.kobylynskyi.order.external.starwars.CharacterTypeResolver.class)"
+                    "@com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(io.github.besi97.order.external.starwars.CharacterTypeResolver.class)"
             ]
     ]
     generateClient = true

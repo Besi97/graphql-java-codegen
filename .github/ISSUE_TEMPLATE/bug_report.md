@@ -33,6 +33,6 @@ assignees: ''
 
 <configuration>
     <outputDir>${project.build.directory}/generated-sources/graphql</outputDir>
-    <packageName>io.github.kobylynskyi.graphql.model</packageName>
+    <packageName>io.github.besi97.graphql.model</packageName>
 </configuration>
 ```

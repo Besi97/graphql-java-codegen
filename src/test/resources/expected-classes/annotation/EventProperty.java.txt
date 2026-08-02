@@ -1,11 +1,11 @@
-package com.kobylynskyi.graphql.test1;
+package io.github.besi97.graphql.test1;
 
 
 /**
  * An event property have all possible types
  */
 @javax.annotation.Generated(
-    value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
+    value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
     date = "2020-12-31T23:59:59-0500"
 )
 @com.example.CustomAnnotation
@@ -122,7 +122,7 @@ public class EventProperty implements java.io.Serializable {
     }
 
     @javax.annotation.Generated(
-        value = "com.kobylynskyi.graphql.codegen.GraphQLCodegen",
+        value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
         date = "2020-12-31T23:59:59-0500"
     )
     public static class Builder {

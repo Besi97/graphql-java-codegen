@@ -1,10 +1,10 @@
 package io.github.besi97.graphql.codegen;
 
-import io.github.besi97.graphql.codegen.model.exception.SchemaValidationException;
-import io.github.besi97.graphql.codegen.parser.GraphQLDocumentParser;
 import graphql.GraphQLException;
 import graphql.parser.MultiSourceReader;
 import graphql.parser.Parser;
+import io.github.besi97.graphql.codegen.model.exception.SchemaValidationException;
+import io.github.besi97.graphql.codegen.parser.GraphQLDocumentParser;
 
 import java.io.IOException;
 import java.util.List;

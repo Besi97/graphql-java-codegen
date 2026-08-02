@@ -1,9 +1,5 @@
 package io.github.besi97.graphql.codegen.mapper;
 
-import io.github.besi97.graphql.codegen.model.MappingContext;
-import io.github.besi97.graphql.codegen.model.NamedDefinition;
-import io.github.besi97.graphql.codegen.model.RelayConfig;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedFieldDefinition;
 import graphql.language.Argument;
 import graphql.language.Directive;
 import graphql.language.DirectivesContainer;
@@ -14,6 +10,10 @@ import graphql.language.NonNullType;
 import graphql.language.StringValue;
 import graphql.language.Type;
 import graphql.language.TypeName;
+import io.github.besi97.graphql.codegen.model.MappingContext;
+import io.github.besi97.graphql.codegen.model.NamedDefinition;
+import io.github.besi97.graphql.codegen.model.RelayConfig;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedFieldDefinition;
 
 import java.util.Collections;
 import java.util.List;

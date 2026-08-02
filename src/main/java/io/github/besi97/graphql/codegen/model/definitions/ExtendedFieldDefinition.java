@@ -1,9 +1,9 @@
 package io.github.besi97.graphql.codegen.model.definitions;
 
-import io.github.besi97.graphql.codegen.utils.Utils;
 import graphql.language.Comment;
 import graphql.language.Description;
 import graphql.language.FieldDefinition;
+import io.github.besi97.graphql.codegen.utils.Utils;
 
 import java.util.Collections;
 import java.util.List;

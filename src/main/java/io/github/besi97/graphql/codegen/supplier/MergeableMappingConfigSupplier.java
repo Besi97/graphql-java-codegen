@@ -1,12 +1,12 @@
 package io.github.besi97.graphql.codegen.supplier;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import io.github.besi97.graphql.codegen.model.MappingConfig;
-import io.github.besi97.graphql.codegen.utils.Utils;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigException;
 import com.typesafe.config.ConfigFactory;
 import com.typesafe.config.ConfigRenderOptions;
+import io.github.besi97.graphql.codegen.model.MappingConfig;
+import io.github.besi97.graphql.codegen.utils.Utils;
 
 import java.io.File;
 import java.util.List;

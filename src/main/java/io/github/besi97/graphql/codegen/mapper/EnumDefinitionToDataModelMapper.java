@@ -1,5 +1,6 @@
 package io.github.besi97.graphql.codegen.mapper;
 
+import graphql.language.Comment;
 import io.github.besi97.graphql.codegen.model.EnumValueDefinition;
 import io.github.besi97.graphql.codegen.model.MappingConfigConstants;
 import io.github.besi97.graphql.codegen.model.MappingContext;
@@ -8,7 +9,6 @@ import io.github.besi97.graphql.codegen.model.builders.JavaDocBuilder;
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedEnumTypeDefinition;
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedUnionTypeDefinition;
 import io.github.besi97.graphql.codegen.utils.Utils;
-import graphql.language.Comment;
 
 import java.util.Collections;
 import java.util.HashMap;

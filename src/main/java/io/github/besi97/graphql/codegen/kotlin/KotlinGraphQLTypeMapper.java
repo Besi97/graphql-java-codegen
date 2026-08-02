@@ -1,5 +1,6 @@
 package io.github.besi97.graphql.codegen.kotlin;
 
+import graphql.language.InputValueDefinition;
 import io.github.besi97.graphql.codegen.mapper.DataModelMapper;
 import io.github.besi97.graphql.codegen.mapper.GraphQLTypeMapper;
 import io.github.besi97.graphql.codegen.model.MappingConfigConstants;
@@ -8,7 +9,6 @@ import io.github.besi97.graphql.codegen.model.NamedDefinition;
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedFieldDefinition;
 import io.github.besi97.graphql.codegen.model.graphql.GraphQLOperation;
 import io.github.besi97.graphql.codegen.utils.Utils;
-import graphql.language.InputValueDefinition;
 
 import java.util.HashSet;
 import java.util.Set;

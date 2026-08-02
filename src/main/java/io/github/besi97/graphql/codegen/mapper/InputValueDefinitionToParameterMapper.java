@@ -1,11 +1,11 @@
 package io.github.besi97.graphql.codegen.mapper;
 
+import graphql.language.InputValueDefinition;
 import io.github.besi97.graphql.codegen.model.MappingContext;
 import io.github.besi97.graphql.codegen.model.NamedDefinition;
 import io.github.besi97.graphql.codegen.model.ParameterDefinition;
 import io.github.besi97.graphql.codegen.model.builders.DeprecatedDefinitionBuilder;
 import io.github.besi97.graphql.codegen.utils.Utils;
-import graphql.language.InputValueDefinition;
 
 import java.util.List;
 

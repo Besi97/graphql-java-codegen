@@ -1,5 +1,8 @@
 package io.github.besi97.graphql.codegen.java;
 
+import graphql.language.Directive;
+import graphql.language.InputValueDefinition;
+import graphql.language.NullValue;
 import io.github.besi97.graphql.codegen.mapper.DataModelMapper;
 import io.github.besi97.graphql.codegen.mapper.GraphQLTypeMapper;
 import io.github.besi97.graphql.codegen.model.MappingConfigConstants;
@@ -7,9 +10,6 @@ import io.github.besi97.graphql.codegen.model.MappingContext;
 import io.github.besi97.graphql.codegen.model.NamedDefinition;
 import io.github.besi97.graphql.codegen.model.graphql.GraphQLOperation;
 import io.github.besi97.graphql.codegen.utils.Utils;
-import graphql.language.Directive;
-import graphql.language.InputValueDefinition;
-import graphql.language.NullValue;
 
 import java.util.HashSet;
 import java.util.List;

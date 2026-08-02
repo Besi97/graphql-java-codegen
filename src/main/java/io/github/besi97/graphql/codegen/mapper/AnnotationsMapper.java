@@ -1,10 +1,5 @@
 package io.github.besi97.graphql.codegen.mapper;
 
-import io.github.besi97.graphql.codegen.model.MappingConfigConstants;
-import io.github.besi97.graphql.codegen.model.MappingContext;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedDefinition;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedFieldDefinition;
-import io.github.besi97.graphql.codegen.utils.Utils;
 import graphql.language.Argument;
 import graphql.language.Directive;
 import graphql.language.InputValueDefinition;
@@ -15,6 +10,11 @@ import graphql.language.NonNullType;
 import graphql.language.Type;
 import graphql.language.TypeName;
 import graphql.language.UnionTypeDefinition;
+import io.github.besi97.graphql.codegen.model.MappingConfigConstants;
+import io.github.besi97.graphql.codegen.model.MappingContext;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedDefinition;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedFieldDefinition;
+import io.github.besi97.graphql.codegen.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;

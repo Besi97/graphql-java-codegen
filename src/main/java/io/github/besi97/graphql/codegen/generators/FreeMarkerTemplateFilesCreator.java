@@ -1,11 +1,11 @@
 package io.github.besi97.graphql.codegen.generators;
 
+import freemarker.template.Template;
 import io.github.besi97.graphql.codegen.model.DataModelFields;
 import io.github.besi97.graphql.codegen.model.GeneratedLanguage;
 import io.github.besi97.graphql.codegen.model.MappingContext;
 import io.github.besi97.graphql.codegen.model.exception.UnableToCreateFileException;
 import io.github.besi97.graphql.codegen.utils.Utils;
-import freemarker.template.Template;
 
 import java.io.File;
 import java.io.FileWriter;

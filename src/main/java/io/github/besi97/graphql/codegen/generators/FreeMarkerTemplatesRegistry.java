@@ -1,8 +1,5 @@
 package io.github.besi97.graphql.codegen.generators;
 
-import io.github.besi97.graphql.codegen.GraphQLCodegen;
-import io.github.besi97.graphql.codegen.model.GeneratedLanguage;
-import io.github.besi97.graphql.codegen.model.exception.UnableToLoadFreeMarkerTemplateException;
 import freemarker.cache.ClassTemplateLoader;
 import freemarker.cache.FileTemplateLoader;
 import freemarker.cache.TemplateLoader;
@@ -12,6 +9,9 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
 import freemarker.template.Version;
+import io.github.besi97.graphql.codegen.GraphQLCodegen;
+import io.github.besi97.graphql.codegen.model.GeneratedLanguage;
+import io.github.besi97.graphql.codegen.model.exception.UnableToLoadFreeMarkerTemplateException;
 
 import java.io.File;
 import java.io.IOException;

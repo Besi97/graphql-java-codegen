@@ -1,6 +1,5 @@
 package io.github.besi97.graphql.codegen.mapper;
 
-import io.github.besi97.graphql.codegen.model.MappingContext;
 import graphql.language.ArrayValue;
 import graphql.language.BooleanValue;
 import graphql.language.EnumValue;
@@ -14,6 +13,7 @@ import graphql.language.StringValue;
 import graphql.language.Type;
 import graphql.language.TypeName;
 import graphql.language.Value;
+import io.github.besi97.graphql.codegen.model.MappingContext;
 
 import java.util.Collections;
 import java.util.List;

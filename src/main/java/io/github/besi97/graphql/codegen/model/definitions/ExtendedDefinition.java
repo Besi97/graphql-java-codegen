@@ -1,11 +1,11 @@
 package io.github.besi97.graphql.codegen.model.definitions;
 
-import io.github.besi97.graphql.codegen.utils.Utils;
 import graphql.language.Directive;
 import graphql.language.DirectivesContainer;
 import graphql.language.NamedNode;
 import graphql.language.Node;
 import graphql.language.SourceLocation;
+import io.github.besi97.graphql.codegen.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,12 +1,12 @@
 package io.github.besi97.graphql.codegen.model.builders;
 
-import io.github.besi97.graphql.codegen.model.DeprecatedDefinition;
-import io.github.besi97.graphql.codegen.model.GeneratedLanguage;
-import io.github.besi97.graphql.codegen.model.MappingContext;
 import graphql.language.Argument;
 import graphql.language.Directive;
 import graphql.language.DirectivesContainer;
 import graphql.language.StringValue;
+import io.github.besi97.graphql.codegen.model.DeprecatedDefinition;
+import io.github.besi97.graphql.codegen.model.GeneratedLanguage;
+import io.github.besi97.graphql.codegen.model.MappingContext;
 
 /**
  * Builder of @deprecated annotation definition

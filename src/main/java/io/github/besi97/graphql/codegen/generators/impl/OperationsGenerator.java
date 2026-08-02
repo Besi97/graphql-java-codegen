@@ -1,5 +1,6 @@
 package io.github.besi97.graphql.codegen.generators.impl;
 
+import graphql.language.FieldDefinition;
 import io.github.besi97.graphql.codegen.generators.FilesGenerator;
 import io.github.besi97.graphql.codegen.generators.FreeMarkerTemplateFilesCreator;
 import io.github.besi97.graphql.codegen.generators.FreeMarkerTemplateType;
@@ -8,7 +9,6 @@ import io.github.besi97.graphql.codegen.model.ApiInterfaceStrategy;
 import io.github.besi97.graphql.codegen.model.MappingContext;
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedFieldDefinition;
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedObjectTypeDefinition;
-import graphql.language.FieldDefinition;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
 package io.github.besi97.graphql.codegen.gradle;
 
+import graphql.parser.ParserOptions;
 import io.github.besi97.graphql.codegen.GraphQLCodegen;
 import io.github.besi97.graphql.codegen.java.JavaGraphQLCodegen;
 import io.github.besi97.graphql.codegen.kotlin.KotlinGraphQLCodegen;
@@ -14,7 +15,6 @@ import io.github.besi97.graphql.codegen.model.exception.LanguageNotSupportedExce
 import io.github.besi97.graphql.codegen.supplier.MappingConfigSupplier;
 import io.github.besi97.graphql.codegen.supplier.MergeableMappingConfigSupplier;
 import io.github.besi97.graphql.codegen.supplier.SchemaFinder;
-import graphql.parser.ParserOptions;
 import org.gradle.api.Action;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.plugins.JavaPluginExtension;

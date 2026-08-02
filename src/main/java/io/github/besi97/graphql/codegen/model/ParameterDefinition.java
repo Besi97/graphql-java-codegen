@@ -1,7 +1,7 @@
 package io.github.besi97.graphql.codegen.model;
 
-import io.github.besi97.graphql.codegen.mapper.DataModelMapper;
 import graphql.schema.DataFetchingEnvironment;
+import io.github.besi97.graphql.codegen.mapper.DataModelMapper;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,9 @@
 package io.github.besi97.graphql.codegen.mapper;
 
+import graphql.language.Argument;
+import graphql.language.Directive;
+import graphql.language.StringValue;
+import graphql.language.TypeName;
 import io.github.besi97.graphql.codegen.model.MappingContext;
 import io.github.besi97.graphql.codegen.model.NamedDefinition;
 import io.github.besi97.graphql.codegen.model.OperationDefinition;
@@ -11,10 +15,6 @@ import io.github.besi97.graphql.codegen.model.definitions.ExtendedFieldDefinitio
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedObjectTypeDefinition;
 import io.github.besi97.graphql.codegen.model.graphql.GraphQLOperation;
 import io.github.besi97.graphql.codegen.utils.Utils;
-import graphql.language.Argument;
-import graphql.language.Directive;
-import graphql.language.StringValue;
-import graphql.language.TypeName;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,5 +1,6 @@
 package io.github.besi97.graphql.codegen;
 
+import graphql.language.ScalarTypeExtensionDefinition;
 import io.github.besi97.graphql.codegen.generators.FilesGenerator;
 import io.github.besi97.graphql.codegen.generators.FilesGeneratorsFactory;
 import io.github.besi97.graphql.codegen.mapper.DataModelMapperFactory;
@@ -14,7 +15,6 @@ import io.github.besi97.graphql.codegen.model.definitions.ExtendedScalarTypeDefi
 import io.github.besi97.graphql.codegen.parser.GraphQLDocumentParser;
 import io.github.besi97.graphql.codegen.supplier.MappingConfigSupplier;
 import io.github.besi97.graphql.codegen.utils.Utils;
-import graphql.language.ScalarTypeExtensionDefinition;
 
 import java.io.File;
 import java.io.IOException;

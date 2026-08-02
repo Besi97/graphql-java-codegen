@@ -1,5 +1,8 @@
 package io.github.besi97.graphql.codegen.mapper;
 
+import graphql.language.InputValueDefinition;
+import graphql.language.SourceLocation;
+import graphql.language.TypeName;
 import io.github.besi97.graphql.codegen.model.ApiRootInterfaceStrategy;
 import io.github.besi97.graphql.codegen.model.MappingContext;
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedDefinition;
@@ -9,9 +12,6 @@ import io.github.besi97.graphql.codegen.model.definitions.ExtendedImplementingTy
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedInterfaceTypeDefinition;
 import io.github.besi97.graphql.codegen.model.definitions.ExtendedObjectTypeDefinition;
 import io.github.besi97.graphql.codegen.utils.Utils;
-import graphql.language.InputValueDefinition;
-import graphql.language.SourceLocation;
-import graphql.language.TypeName;
 
 import java.io.File;
 import java.util.Collections;

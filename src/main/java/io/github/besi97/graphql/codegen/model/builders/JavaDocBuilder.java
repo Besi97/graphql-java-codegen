@@ -1,12 +1,12 @@
 package io.github.besi97.graphql.codegen.model.builders;
 
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedDefinition;
-import io.github.besi97.graphql.codegen.utils.Utils;
 import graphql.language.AbstractDescribedNode;
 import graphql.language.Comment;
 import graphql.language.Description;
 import graphql.language.NamedNode;
 import graphql.language.Node;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedDefinition;
+import io.github.besi97.graphql.codegen.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;

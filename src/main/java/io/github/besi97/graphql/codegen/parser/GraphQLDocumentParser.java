@@ -1,16 +1,6 @@
 package io.github.besi97.graphql.codegen.parser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import io.github.besi97.graphql.codegen.model.MappingConfig;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedDefinition;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedDocument;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedEnumTypeDefinition;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedInputObjectTypeDefinition;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedInterfaceTypeDefinition;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedObjectTypeDefinition;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedScalarTypeDefinition;
-import io.github.besi97.graphql.codegen.model.definitions.ExtendedUnionTypeDefinition;
-import io.github.besi97.graphql.codegen.utils.Utils;
 import graphql.introspection.IntrospectionResultToSchema;
 import graphql.language.Definition;
 import graphql.language.Document;
@@ -29,6 +19,16 @@ import graphql.language.UnionTypeDefinition;
 import graphql.language.UnionTypeExtensionDefinition;
 import graphql.parser.MultiSourceReader;
 import graphql.parser.Parser;
+import io.github.besi97.graphql.codegen.model.MappingConfig;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedDefinition;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedDocument;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedEnumTypeDefinition;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedInputObjectTypeDefinition;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedInterfaceTypeDefinition;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedObjectTypeDefinition;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedScalarTypeDefinition;
+import io.github.besi97.graphql.codegen.model.definitions.ExtendedUnionTypeDefinition;
+import io.github.besi97.graphql.codegen.utils.Utils;
 
 import java.io.IOException;
 import java.util.HashMap;

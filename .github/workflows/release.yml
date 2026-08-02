@@ -86,13 +86,21 @@ jobs:
 
       - name: Release library to Maven Central
         run: |
-          ./gradlew publish \
-                -Dorg.gradle.internal.publish.checksums.insecure=true \
-                -PsonatypeUsername=${{ secrets.OSSRH_USERNAME }} \
-                -PsonatypePassword=${{ secrets.OSSRH_PASSWORD }} \
+          ./gradlew publishMavenJavaPublicationToCentralStagingRepository \
                 -Psigning.keyId=${{ secrets.OSSRH_GPG_SECRET_KEY_ID }} \
                 -Psigning.password=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} \
                 -Psigning.secretKeyRingFile=${{ github.workspace }}/secretKeyRingFile.gpg
+
+      - name: Bundle and upload to Central Portal
+        run: |
+          cd build/central-staging
+          zip -r ../../central-bundle.zip .
+          cd ../..
+          curl -s -X POST \
+            "https://central.sonatype.com/api/v1/publisher/deployments/upload" \
+            -H "Authorization: Bearer $(echo -n "${{ secrets.CENTRAL_USERNAME }}:${{ secrets.CENTRAL_PASSWORD }}" | base64)" \
+            -F "bundle=@central-bundle.zip" \
+            -F "publishingType=AUTOMATIC"
 
       - name: Release Gradle plugin
         run: |

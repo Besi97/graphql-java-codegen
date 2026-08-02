@@ -131,11 +131,8 @@ publishing {
     }
     repositories {
         maven {
-            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-            credentials {
-                username sonatypeUsername
-                password sonatypePassword
-            }
+            name = "centralStaging"
+            url = layout.buildDirectory.dir("central-staging")
         }
         ivy {
             url "${System.properties['user.home']}/.ivy2/local"

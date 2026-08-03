@@ -24,8 +24,8 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          java-version: 8
-          distribution: 'adopt'
+          java-version: 17
+          distribution: 'temurin'
 
       - name: Gradle cache
         uses: actions/cache@v4
@@ -86,21 +86,13 @@ jobs:
 
       - name: Release library to Maven Central
         run: |
-          ./gradlew publishMavenJavaPublicationToCentralStagingRepository \
+          ./gradlew publish \
                 -Psigning.keyId=${{ secrets.OSSRH_GPG_SECRET_KEY_ID }} \
                 -Psigning.password=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} \
                 -Psigning.secretKeyRingFile=${{ github.workspace }}/secretKeyRingFile.gpg
-
-      - name: Bundle and upload to Central Portal
-        run: |
-          cd build/central-staging
-          zip -r ../../central-bundle.zip .
-          cd ../..
-          curl -s -X POST \
-            "https://central.sonatype.com/api/v1/publisher/deployments/upload" \
-            -H "Authorization: Bearer $(echo -n "${{ secrets.CENTRAL_USERNAME }}:${{ secrets.CENTRAL_PASSWORD }}" | base64)" \
-            -F "bundle=@central-bundle.zip" \
-            -F "publishingType=AUTOMATIC"
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.CENTRAL_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.CENTRAL_PASSWORD }}
 
       - name: Release Gradle plugin
         run: |

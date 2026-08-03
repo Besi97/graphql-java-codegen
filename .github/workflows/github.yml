@@ -17,11 +17,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Java ${{ matrix.jdk-version }}
+      - name: Setup Java 17 (for Gradle daemon)
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'temurin'
+
+      - name: Setup Java ${{ matrix.jdk-version }} (for compilation)
         uses: actions/setup-java@v4
         with:
           java-version: ${{ matrix.jdk-version }}
-          distribution: 'adopt'
+          distribution: 'temurin'
 
       - name: Gradle cache
         uses: actions/cache@v4
@@ -30,17 +36,17 @@ jobs:
           key: gradle
 
       - name: Build library
-        run: ./gradlew build publishToMavenLocal --warning-mode all
+        run: ./gradlew build publishToMavenLocal --warning-mode all -Porg.gradle.java.home=$JAVA_HOME_17_X64
 
       - name: Build gradle plugin
-        run: ./gradlew -p plugins/gradle/graphql-java-codegen-gradle-plugin build publishToMavenLocal --warning-mode all
+        run: ./gradlew -p plugins/gradle/graphql-java-codegen-gradle-plugin build publishToMavenLocal --warning-mode all -Porg.gradle.java.home=$JAVA_HOME_17_X64
 
       - name: Build gradle example-server
-        run: ./gradlew -p plugins/gradle/example-server test --warning-mode all
+        run: ./gradlew -p plugins/gradle/example-server test --warning-mode all -Porg.gradle.java.home=$JAVA_HOME_17_X64
 
       - name: Build gradle example-client
-        run: ./gradlew -p plugins/gradle/example-client test --warning-mode all
+        run: ./gradlew -p plugins/gradle/example-client test --warning-mode all -Porg.gradle.java.home=$JAVA_HOME_17_X64
 
       - name: Build gradle example-client-kotlin
-        run: ./gradlew -p plugins/gradle/example-client-kotlin build --warning-mode all
+        run: ./gradlew -p plugins/gradle/example-client-kotlin build --warning-mode all -Porg.gradle.java.home=$JAVA_HOME_17_X64
 

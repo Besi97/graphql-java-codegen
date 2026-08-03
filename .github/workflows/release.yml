@@ -41,20 +41,6 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Release version: $VERSION"
 
-      - name: Set up GPG
-        run: |
-          mkdir -p ~/.gnupg
-          chmod 700 ~/.gnupg
-          echo use-agent >> ~/.gnupg/gpg.conf
-          echo pinentry-mode loopback >> ~/.gnupg/gpg.conf
-          echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf
-          echo RELOADAGENT | gpg-connect-agent
-          echo "$SIGNING_KEY" | gpg --dearmor > ${{ github.workspace }}/secretKeyRingFile.gpg
-          gpg --import --pinentry-mode loopback --batch --passphrase '${SIGNING_PASSWORD}' ${{ github.workspace }}/secretKeyRingFile.gpg
-        env:
-          SIGNING_KEY: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
-          SIGNING_PASSWORD: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
-
       - name: Configure Git
         run: |
           git config --global user.name 'graphql-java-codegen-ci-bot[bot]'
@@ -85,14 +71,13 @@ jobs:
         run: git commit -am "Release ${{ github.event.release.tag_name }}"
 
       - name: Release library to Maven Central
-        run: |
-          ./gradlew publish \
-                -Psigning.keyId=${{ secrets.OSSRH_GPG_SECRET_KEY_ID }} \
-                -Psigning.password=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} \
-                -Psigning.secretKeyRingFile=${{ github.workspace }}/secretKeyRingFile.gpg
+        run: ./gradlew publish
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.CENTRAL_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.OSSRH_GPG_SECRET_KEY_ID }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
 
       - name: Release Gradle plugin
         run: |

@@ -6,7 +6,7 @@ plugins {
     //
     // use the latest available version:
     // https://plugins.gradle.org/plugin/io.github.besi97.graphql.codegen
-    id "io.github.besi97.graphql.codegen" version "6.0.1-SNAPSHOT"
+    id "io.github.besi97.graphql.codegen" version "6.0.0-rc1"
 }
 
 mainClassName = "io.github.besi97.product.Application"

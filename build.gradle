@@ -6,6 +6,7 @@ plugins {
     id "java-library"
     id "signing"
     id "maven-publish"
+    id "com.vanniktech.maven.publish" version "0.30.0"
 }
 
 def graphqlCodegenVersion = '5.10.1-SNAPSHOT' // This variable used in the automatic release process
@@ -66,57 +67,47 @@ compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 javadoc.options.encoding = "UTF-8"
 
-java {
-    withJavadocJar()
-    withSourcesJar()
+mavenPublishing {
+    publishToMavenCentral("CENTRAL_PORTAL")
+    signAllPublications()
+
+    coordinates("io.github.besi97", "graphql-java-codegen", graphqlCodegenVersion)
+
+    pom {
+        name = "GraphQL Java CodeGen"
+        description = "Java Code Generator based on GraphQL schema"
+        url = "https://github.com/Besi97/graphql-java-codegen"
+        organization {
+            name = "io.github.besi97"
+            url = "https://github.com/Besi97"
+        }
+        issueManagement {
+            system = "GitHub"
+            url = "https://github.com/Besi97/graphql-java-codegen/issues"
+        }
+        licenses {
+            license {
+                name = "MIT License"
+                url = "https://github.com/Besi97/graphql-java-codegen/blob/main/LICENSE"
+                distribution = "repo"
+            }
+        }
+        scm {
+            url = "https://github.com/Besi97/graphql-java-codegen"
+            connection = "scm:git:git://github.com/Besi97/graphql-java-codegen.git"
+            developerConnection = "scm:git:ssh://git@github.com:Besi97/graphql-java-codegen.git"
+        }
+        developers {
+            developer {
+                id = "Besi97"
+                name = "Dávid Besenyei"
+            }
+        }
+    }
 }
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            artifactId "graphql-java-codegen"
-            from components.java
-            versionMapping {
-                usage('java-api') {
-                    fromResolutionOf('runtimeClasspath')
-                }
-                usage('java-runtime') {
-                    fromResolutionResult()
-                }
-            }
-
-            pom {
-                name = "GraphQL Java CodeGen"
-                description = "Java Code Generator based on GraphQL schema"
-                url = "https://github.com/Besi97/graphql-java-codegen"
-                organization {
-                    name = "io.github.besi97"
-                    url = "https://github.com/Besi97"
-                }
-                issueManagement {
-                    system = "GitHub"
-                    url = "https://github.com/Besi97/graphql-java-codegen/issues"
-                }
-                licenses {
-                    license {
-                        name = "MIT License"
-                        url = "https://github.com/Besi97/graphql-java-codegen/blob/main/LICENSE"
-                        distribution = "repo"
-                    }
-                }
-                scm {
-                    url = "https://github.com/Besi97/graphql-java-codegen"
-                    connection = "scm:git:git://github.com/Besi97/graphql-java-codegen.git"
-                    developerConnection = "scm:git:ssh://git@github.com:Besi97/graphql-java-codegen.git"
-                }
-                developers {
-                    developer {
-                        id = "Besi97"
-                        name = "Dávid Besenyei"
-                    }
-                }
-            }
-        }
         ivy(IvyPublication) {
             from components.java
             versionMapping {
@@ -130,10 +121,6 @@ publishing {
         }
     }
     repositories {
-        maven {
-            name = "centralStaging"
-            url = layout.buildDirectory.dir("central-staging")
-        }
         ivy {
             url "${System.properties['user.home']}/.ivy2/local"
             patternLayout {
@@ -142,11 +129,5 @@ publishing {
                 ivy '[organisation]/[module]/[revision]/[type]s/[artifact](.[ext])'
             }
         }
-    }
-}
-
-if (project.hasProperty("signing.keyId")) {
-    signing {
-        sign publishing.publications.mavenJava
     }
 }

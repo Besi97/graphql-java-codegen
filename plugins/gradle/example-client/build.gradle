@@ -7,7 +7,7 @@ plugins {
 
     // use the latest available version:
     // https://plugins.gradle.org/plugin/io.github.besi97.graphql.codegen
-    id "io.github.besi97.graphql.codegen" version "6.0.1-SNAPSHOT"
+    id "io.github.besi97.graphql.codegen" version "6.0.0"
 }
 
 mainClassName = "io.github.besi97.order.Application"
@@ -22,7 +22,7 @@ dependencies {
 
     // use the latest available version:
     // https://search.maven.org/artifact/io.github.besi97/graphql-java-codegen
-    implementation "io.github.besi97:graphql-java-codegen:6.0.1-SNAPSHOT"
+    implementation "io.github.besi97:graphql-java-codegen:6.0.0"
 
     implementation "org.apache.httpcomponents:httpclient:4.5.14"
     implementation "javax.validation:validation-api:2.0.1.Final"

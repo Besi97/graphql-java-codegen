@@ -17,6 +17,8 @@ import io.github.besi97.graphql.codegen.supplier.MergeableMappingConfigSupplier;
 import io.github.besi97.graphql.codegen.supplier.SchemaFinder;
 import org.gradle.api.Action;
 import org.gradle.api.DefaultTask;
+import org.gradle.api.file.DirectoryProperty;
+import org.gradle.api.file.ProjectLayout;
 import org.gradle.api.plugins.JavaPluginExtension;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.InputDirectory;
@@ -28,6 +30,8 @@ import org.gradle.api.tasks.Optional;
 import org.gradle.api.tasks.OutputDirectory;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.TaskAction;
+
+import javax.inject.Inject;
 
 import java.io.File;
 import java.io.IOException;
@@ -128,9 +132,14 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
     private Boolean skip = false;
     private Boolean skipSchemaSizeLimit = MappingConfigConstants.DEFAULT_SKIP_SCHEMA_SIZE_LIMIT;
 
-    public GraphQLCodegenGradleTask() {
+    private File defaultResourcesDir;
+    private final ProjectLayout projectLayout;
+
+    @Inject
+    public GraphQLCodegenGradleTask(ProjectLayout projectLayout) {
         setGroup("codegen");
         setDescription("Generates Java POJOs and interfaces based on GraphQL schemas");
+        this.projectLayout = projectLayout;
     }
 
     /**
@@ -148,7 +157,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
         mappingConfig.setCustomAnnotationsMapping(
                 customAnnotationsMapping != null ? customAnnotationsMapping : new HashMap<>());
         mappingConfig.setCustomTemplatesRoot(
-                customTemplatesRoot != null ? customTemplatesRoot : getProject().getProjectDir()
+                customTemplatesRoot != null ? customTemplatesRoot : projectLayout.getProjectDirectory().getAsFile()
         );
         mappingConfig.setCustomTemplates(
                 customTemplates != null ? customTemplates : new HashMap<>());
@@ -286,23 +295,15 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
     private Path getSchemasRootDir() {
         String rootDir = graphqlSchemas.getRootDir();
         if (rootDir == null) {
-            return findDefaultResourcesDir().orElseThrow(() -> new IllegalStateException(
-                    "Default resource folder not found, please provide graphqlSchemas.rootDir"));
+            return java.util.Optional.ofNullable(defaultResourcesDir).map(File::toPath)
+                    .orElseThrow(() -> new IllegalStateException(
+                            "Default resource folder not found, please provide graphqlSchemas.rootDir"));
         }
         return Paths.get(rootDir);
     }
 
-    private java.util.Optional<Path> findDefaultResourcesDir() {
-        return getProject().getExtensions()
-                .getByType(JavaPluginExtension.class)
-                .getSourceSets()
-                .getByName(SourceSet.MAIN_SOURCE_SET_NAME)
-                .getResources()
-                .getSourceDirectories()
-                .getFiles()
-                .stream()
-                .findFirst()
-                .map(File::toPath);
+    public void setDefaultResourcesDir(File defaultResourcesDir) {
+        this.defaultResourcesDir = defaultResourcesDir;
     }
 
     private java.util.Optional<MappingConfigSupplier> buildJsonSupplier() {

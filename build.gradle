@@ -30,7 +30,13 @@ dependencies {
     testImplementation "org.hamcrest:java-hamcrest:2.0.0.0"
 }
 
-test.useJUnitPlatform()
+testing {
+    suites {
+        test {
+            useJUnitJupiter()
+        }
+    }
+}
 
 task codeCoverageReport(type: JacocoReport) {
     executionData fileTree(project.rootDir.absolutePath).include("build/jacoco/*.exec")

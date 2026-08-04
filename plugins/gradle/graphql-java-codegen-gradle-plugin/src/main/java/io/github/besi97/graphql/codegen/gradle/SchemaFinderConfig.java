@@ -3,6 +3,7 @@ package io.github.besi97.graphql.codegen.gradle;
 import io.github.besi97.graphql.codegen.supplier.SchemaFinder;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.InputFiles;
+import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.Optional;
 
 import java.util.Collections;
@@ -36,6 +37,12 @@ public class SchemaFinderConfig {
 
     @Input
     @Optional
+    public Boolean getRecursive() {
+        return recursive;
+    }
+
+    @Deprecated
+    @Internal
     public Boolean isRecursive() {
         return recursive;
     }

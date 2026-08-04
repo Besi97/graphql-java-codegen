@@ -527,6 +527,14 @@ public interface GraphQLCodegenConfiguration {
      *
      * @return <b>false</b> generate data class in kotlin and case class in scala
      */
+    default Boolean getGenerateModelOpenClasses() {
+        return isGenerateModelOpenClasses();
+    }
+
+    /**
+     * @deprecated Use {@link #getGenerateModelOpenClasses()} instead.
+     */
+    @Deprecated
     Boolean isGenerateModelOpenClasses();
 
     /**
@@ -535,6 +543,14 @@ public interface GraphQLCodegenConfiguration {
      *
      * @return <b>true</b> if nullable fields should be defaulted to null.
      */
+    default Boolean getInitializeNullableTypes() {
+        return isInitializeNullableTypes();
+    }
+
+    /**
+     * @deprecated Use {@link #getInitializeNullableTypes()} instead.
+     */
+    @Deprecated
     Boolean isInitializeNullableTypes();
 
     /**
@@ -542,6 +558,14 @@ public interface GraphQLCodegenConfiguration {
      *
      * @return <b>false</b> generate sealed interfaces class in kotlin
      */
+    default Boolean getGenerateSealedInterfaces() {
+        return isGenerateSealedInterfaces();
+    }
+
+    /**
+     * @deprecated Use {@link #getGenerateSealedInterfaces()} instead.
+     */
+    @Deprecated
     Boolean isGenerateSealedInterfaces();
 
     /*
@@ -551,6 +575,14 @@ public interface GraphQLCodegenConfiguration {
      * @see com.fasterxml.jackson.annotation.JsonAnyGetter
      * @see com.fasterxml.jackson.annotation.JsonAnySetter
      */
+    default Boolean getSupportUnknownFields() {
+        return isSupportUnknownFields();
+    }
+
+    /**
+     * @deprecated Use {@link #getSupportUnknownFields()} instead.
+     */
+    @Deprecated
     Boolean isSupportUnknownFields();
 
     /**
@@ -579,6 +611,14 @@ public interface GraphQLCodegenConfiguration {
      * @return <b>true</b> if only no-args constructor should be generated.
      * <b>false</b> if both no-args and all-args constructors should be generated
      */
+    default Boolean getGenerateNoArgsConstructorOnly() {
+        return isGenerateNoArgsConstructorOnly();
+    }
+
+    /**
+     * @deprecated Use {@link #getGenerateNoArgsConstructorOnly()} instead.
+     */
+    @Deprecated
     Boolean isGenerateNoArgsConstructorOnly();
 
     /**
@@ -587,6 +627,14 @@ public interface GraphQLCodegenConfiguration {
      * @return <b>true</b> if model classes should have public fields and no getters/setters.
      * <b>false</b> if model classes should have private fields and getters/setters.
      */
+    default Boolean getGenerateModelsWithPublicFields() {
+        return isGenerateModelsWithPublicFields();
+    }
+
+    /**
+     * @deprecated Use {@link #getGenerateModelsWithPublicFields()} instead.
+     */
+    @Deprecated
     Boolean isGenerateModelsWithPublicFields();
 
 

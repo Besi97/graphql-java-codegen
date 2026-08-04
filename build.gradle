@@ -52,10 +52,10 @@ test {
     testLogging {
         events "failed"
 
-        showExceptions true
-        exceptionFormat "full"
-        showCauses true
-        showStackTraces true
+        showExceptions = true
+        exceptionFormat = "full"
+        showCauses = true
+        showStackTraces = true
 
         showStandardStreams = false
     }
@@ -122,7 +122,7 @@ publishing {
     }
     repositories {
         ivy {
-            url "${System.properties['user.home']}/.ivy2/local"
+            url = "${System.properties['user.home']}/.ivy2/local"
             patternLayout {
                 artifact '[organisation]/[module]/[revision]/[ext]s/[artifact](-[classifier])(.[ext])'
                 // for ci and local, must publish to ivy2 local

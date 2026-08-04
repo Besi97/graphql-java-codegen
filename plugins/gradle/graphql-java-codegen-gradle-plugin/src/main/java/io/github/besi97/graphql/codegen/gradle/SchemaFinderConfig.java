@@ -1,6 +1,7 @@
 package io.github.besi97.graphql.codegen.gradle;
 
 import io.github.besi97.graphql.codegen.supplier.SchemaFinder;
+import org.gradle.api.ReplacedBy;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.InputFiles;
 import org.gradle.api.tasks.Optional;
@@ -34,6 +35,14 @@ public class SchemaFinderConfig {
         this.rootDir = rootDir;
     }
 
+    @Input
+    @Optional
+    public Boolean getRecursive() {
+        return recursive;
+    }
+
+    @Deprecated
+    @ReplacedBy("getRecursive")
     @Input
     @Optional
     public Boolean isRecursive() {

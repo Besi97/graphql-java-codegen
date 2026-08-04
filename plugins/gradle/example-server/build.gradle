@@ -9,7 +9,9 @@ plugins {
     id "io.github.besi97.graphql.codegen" version "6.0.1-SNAPSHOT"
 }
 
-mainClassName = "io.github.besi97.product.Application"
+application {
+    mainClass = "io.github.besi97.product.Application"
+}
 
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web:2.7.18"

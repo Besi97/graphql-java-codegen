@@ -518,7 +518,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateBuilder() {
+    @Override
+    public Boolean getGenerateBuilder() {
         return generateBuilder;
     }
 
@@ -528,7 +529,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateApis() {
+    @Override
+    public Boolean getGenerateApis() {
         return generateApis;
     }
 
@@ -538,7 +540,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateModelsForRootTypes() {
+    @Override
+    public Boolean getGenerateModelsForRootTypes() {
         return generateModelsForRootTypes;
     }
 
@@ -559,7 +562,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateEqualsAndHashCode() {
+    @Override
+    public Boolean getGenerateEqualsAndHashCode() {
         return generateEqualsAndHashCode;
     }
 
@@ -569,7 +573,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateImmutableModels() {
+    @Override
+    public Boolean getGenerateImmutableModels() {
         return generateImmutableModels;
     }
 
@@ -579,7 +584,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateToString() {
+    @Override
+    public Boolean getGenerateToString() {
         return generateToString;
     }
 
@@ -622,7 +628,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateParameterizedFieldsResolvers() {
+    @Override
+    public Boolean getGenerateParameterizedFieldsResolvers() {
         return generateParameterizedFieldsResolvers;
     }
 
@@ -654,7 +661,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateExtensionFieldsResolvers() {
+    @Override
+    public Boolean getGenerateExtensionFieldsResolvers() {
         return generateExtensionFieldsResolvers;
     }
 
@@ -664,7 +672,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateDataFetchingEnvironmentArgumentInApis() {
+    @Override
+    public Boolean getGenerateDataFetchingEnvironmentArgumentInApis() {
         return generateDataFetchingEnvironmentArgumentInApis;
     }
 
@@ -675,7 +684,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getUseOptionalForNullableReturnTypes() {
+    @Override
+    public Boolean getUseOptionalForNullableReturnTypes() {
         return useOptionalForNullableReturnTypes;
     }
 
@@ -685,7 +695,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getUseWrapperForNullableInputTypes() {
+    @Override
+    public Boolean getUseWrapperForNullableInputTypes() {
         return useWrapperForNullableInputTypes;
     }
 
@@ -695,7 +706,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateApisWithThrowsException() {
+    @Override
+    public Boolean getGenerateApisWithThrowsException() {
         return generateApisWithThrowsException;
     }
 
@@ -705,7 +717,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateApisWithSuspendFunctions() {
+    @Override
+    public Boolean getGenerateApisWithSuspendFunctions() {
         return generateApisWithSuspendFunctions;
     }
 
@@ -715,7 +728,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateJacksonTypeIdResolver() {
+    @Override
+    public Boolean getGenerateJacksonTypeIdResolver() {
         return generateJacksonTypeIdResolver;
     }
 
@@ -725,7 +739,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getAddGeneratedAnnotation() {
+    @Override
+    public Boolean getAddGeneratedAnnotation() {
         return addGeneratedAnnotation;
     }
 
@@ -746,7 +761,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateNoArgsConstructorOnly() {
+    @Override
+    public Boolean getGenerateNoArgsConstructorOnly() {
         return generateNoArgsConstructorOnly;
     }
 
@@ -763,7 +779,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateModelsWithPublicFields() {
+    @Override
+    public Boolean getGenerateModelsWithPublicFields() {
         return generateModelsWithPublicFields;
     }
 
@@ -868,7 +885,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateClient() {
+    @Override
+    public Boolean getGenerateClient() {
         return generateClient;
     }
 
@@ -933,7 +951,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateAllMethodInProjection() {
+    @Override
+    public Boolean getGenerateAllMethodInProjection() {
         return generateAllMethodInProjection;
     }
 
@@ -1009,7 +1028,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateModelOpenClasses() {
+    @Override
+    public Boolean getGenerateModelOpenClasses() {
         return generateModelOpenClasses;
     }
 
@@ -1026,7 +1046,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getInitializeNullableTypes() {
+    @Override
+    public Boolean getInitializeNullableTypes() {
         return initializeNullableTypes;
     }
 
@@ -1043,7 +1064,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getGenerateSealedInterfaces() {
+    @Override
+    public Boolean getGenerateSealedInterfaces() {
         return generateSealedInterfaces;
     }
 
@@ -1060,7 +1082,8 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @Input
     @Optional
-        public Boolean getSupportUnknownFields() {
+    @Override
+    public Boolean getSupportUnknownFields() {
         return supportUnknownFields;
     }
 

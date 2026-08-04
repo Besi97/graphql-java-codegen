@@ -98,7 +98,6 @@ task graphqlCodegenStarwarsService(type: GraphQLCodegenGradleTask) {
 
 
 repositories {
-    jcenter()
     mavenCentral()
     mavenLocal()
 }

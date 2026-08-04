@@ -295,17 +295,11 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
     private Path getSchemasRootDir() {
         String rootDir = graphqlSchemas.getRootDir();
         if (rootDir == null) {
-            return findDefaultResourcesDir().orElseThrow(() -> new IllegalStateException(
-                    "Default resource folder not found, please provide graphqlSchemas.rootDir"));
+            return java.util.Optional.ofNullable(defaultResourcesDir).map(File::toPath)
+                    .orElseThrow(() -> new IllegalStateException(
+                            "Default resource folder not found, please provide graphqlSchemas.rootDir"));
         }
         return Paths.get(rootDir);
-    }
-
-    private java.util.Optional<Path> findDefaultResourcesDir() {
-        if (defaultResourcesDir != null) {
-            return java.util.Optional.of(defaultResourcesDir.toPath());
-        }
-        return java.util.Optional.empty();
     }
 
     public void setDefaultResourcesDir(File defaultResourcesDir) {

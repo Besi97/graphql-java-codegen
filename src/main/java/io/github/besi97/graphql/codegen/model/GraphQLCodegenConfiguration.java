@@ -282,6 +282,13 @@ public interface GraphQLCodegenConfiguration {
     Boolean getAddGeneratedAnnotation();
 
     /**
+     * Specifies whether the {@code @Generated} annotation should include the {@code date} attribute.
+     *
+     * @return <b>true</b> if the {@code date} attribute should be included in the {@code @Generated} annotation
+     */
+    Boolean getAddGeneratedAnnotationDate();
+
+    /**
      * Specifies whether generated union interfaces should be annotated with a Jackson type id resolver generated in
      * model package.
      *

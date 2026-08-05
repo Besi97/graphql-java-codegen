@@ -56,6 +56,7 @@ public class MappingConfig implements GraphQLCodegenConfiguration, Combinable<Ma
     private Boolean generateApisWithThrowsException;
     private Boolean generateApisWithSuspendFunctions;
     private Boolean addGeneratedAnnotation;
+    private Boolean addGeneratedAnnotationDate;
     private Boolean generateJacksonTypeIdResolver;
     private Boolean supportUnknownFields;
     private Boolean generateNoArgsConstructorOnly;
@@ -177,6 +178,8 @@ public class MappingConfig implements GraphQLCodegenConfiguration, Combinable<Ma
                 GraphQLCodegenConfiguration::getGenerateApisWithSuspendFunctions);
         addGeneratedAnnotation = getValueOrDefaultToThis(source,
                 GraphQLCodegenConfiguration::getAddGeneratedAnnotation);
+        addGeneratedAnnotationDate = getValueOrDefaultToThis(source,
+                GraphQLCodegenConfiguration::getAddGeneratedAnnotationDate);
         generateJacksonTypeIdResolver = getValueOrDefaultToThis(source,
                 GraphQLCodegenConfiguration::getGenerateJacksonTypeIdResolver);
         relayConfig = getValueOrDefaultToThis(source, GraphQLCodegenConfiguration::getRelayConfig);
@@ -550,6 +553,15 @@ public class MappingConfig implements GraphQLCodegenConfiguration, Combinable<Ma
 
     public void setAddGeneratedAnnotation(Boolean addGeneratedAnnotation) {
         this.addGeneratedAnnotation = addGeneratedAnnotation;
+    }
+
+    @Override
+    public Boolean getAddGeneratedAnnotationDate() {
+        return addGeneratedAnnotationDate;
+    }
+
+    public void setAddGeneratedAnnotationDate(Boolean addGeneratedAnnotationDate) {
+        this.addGeneratedAnnotationDate = addGeneratedAnnotationDate;
     }
 
     @Override

@@ -97,6 +97,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
             MappingConfigConstants.DEFAULT_GENERATE_APIS_WITH_SUSPEND_FUNCTIONS;
     private Boolean generateJacksonTypeIdResolver = MappingConfigConstants.DEFAULT_GENERATE_JACKSON_TYPE_ID_RESOLVER;
     private Boolean addGeneratedAnnotation = MappingConfigConstants.DEFAULT_ADD_GENERATED_ANNOTATION;
+    private Boolean addGeneratedAnnotationDate = MappingConfigConstants.DEFAULT_ADD_GENERATED_ANNOTATION_DATE;
     private Boolean generateNoArgsConstructorOnly = MappingConfigConstants.DEFAULT_GENERATE_NOARGS_CONSTRUCTOR_ONLY;
     private Boolean generateModelsWithPublicFields = MappingConfigConstants.DEFAULT_GENERATE_MODELS_WITH_PUBLIC_FIELDS;
     private String generatedAnnotation;
@@ -188,6 +189,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
         mappingConfig.setGenerateNoArgsConstructorOnly(generateNoArgsConstructorOnly);
         mappingConfig.setGenerateModelsWithPublicFields(generateModelsWithPublicFields);
         mappingConfig.setAddGeneratedAnnotation(addGeneratedAnnotation);
+        mappingConfig.setAddGeneratedAnnotationDate(addGeneratedAnnotationDate);
         mappingConfig.setGeneratedAnnotation(generatedAnnotation);
         mappingConfig.setApiReturnType(apiReturnType);
         mappingConfig.setApiReturnListType(apiReturnListType);
@@ -747,6 +749,17 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     public void setAddGeneratedAnnotation(Boolean addGeneratedAnnotation) {
         this.addGeneratedAnnotation = addGeneratedAnnotation;
+    }
+
+    @Input
+    @Optional
+    @Override
+    public Boolean getAddGeneratedAnnotationDate() {
+        return addGeneratedAnnotationDate;
+    }
+
+    public void setAddGeneratedAnnotationDate(Boolean addGeneratedAnnotationDate) {
+        this.addGeneratedAnnotationDate = addGeneratedAnnotationDate;
     }
 
     @Input

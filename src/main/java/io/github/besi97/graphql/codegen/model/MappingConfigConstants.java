@@ -47,6 +47,9 @@ public class MappingConfigConstants {
     public static final boolean DEFAULT_ADD_GENERATED_ANNOTATION = true;
     public static final String DEFAULT_ADD_GENERATED_ANNOTATION_STRING = "true";
 
+    public static final boolean DEFAULT_ADD_GENERATED_ANNOTATION_DATE = true;
+    public static final String DEFAULT_ADD_GENERATED_ANNOTATION_DATE_STRING = "true";
+
     public static final boolean DEFAULT_GENERATE_JACKSON_TYPE_ID_RESOLVER = false;
     public static final String DEFAULT_GENERATE_JACKSON_TYPE_ID_RESOLVER_STRING = "false";
 

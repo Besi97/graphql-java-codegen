@@ -335,6 +335,21 @@ class GraphQLCodegenAnnotationsTest {
                 "public class Event implements java.io.Serializable {");
     }
 
+    @Test
+    void generate_GeneratedAnnotationWithoutDate() throws Exception {
+        mappingConfig.setGeneratedAnnotation("jakarta.annotation.Generated");
+        mappingConfig.setAddGeneratedAnnotationDate(false);
+
+        generate("src/test/resources/schemas/test.graphqls");
+
+        File[] files = Objects.requireNonNull(outputJavaClassesDir.listFiles());
+        assertFileContainsElements(files, "Event.java", " */",
+                "@jakarta.annotation.Generated(",
+                "    value = \"io.github.besi97.graphql.codegen.GraphQLCodegen\"",
+                ")",
+                "public class Event implements java.io.Serializable {");
+    }
+
     private void generate(String path) throws IOException {
         new JavaGraphQLCodegen(singletonList(path), outputBuildDir, mappingConfig,
                 TestUtils.getStaticGeneratedInfo(mappingConfig)).generate();

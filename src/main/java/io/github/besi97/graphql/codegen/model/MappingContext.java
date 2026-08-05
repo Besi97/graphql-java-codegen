@@ -244,6 +244,11 @@ public class MappingContext implements GraphQLCodegenConfiguration {
     }
 
     @Override
+    public Boolean getAddGeneratedAnnotationDate() {
+        return config.getAddGeneratedAnnotationDate();
+    }
+
+    @Override
     public Boolean getGenerateJacksonTypeIdResolver() {
         return config.getGenerateJacksonTypeIdResolver();
     }

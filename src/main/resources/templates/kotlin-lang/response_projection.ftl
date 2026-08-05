@@ -17,8 +17,8 @@ import java.util.Objects
 </#if>
 <#if generatedAnnotation && generatedInfo.getGeneratedType()?has_content>
 @${generatedInfo.getGeneratedType()}(
-    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"],
-    date = "${generatedInfo.getDateTime()}"
+    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"]<#if generatedInfo.getDateTime()??>,
+    date = "${generatedInfo.getDateTime()}"</#if>
 )
 </#if>
 <#list annotations as annotation>

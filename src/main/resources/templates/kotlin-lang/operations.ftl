@@ -15,8 +15,8 @@ import ${import}.*
 </#if>
 <#if generatedAnnotation && generatedInfo.getGeneratedType()?has_content>
 @${generatedInfo.getGeneratedType()}(
-    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"],
-    date = "${generatedInfo.getDateTime()}"
+    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"]<#if generatedInfo.getDateTime()??>,
+    date = "${generatedInfo.getDateTime()}"</#if>
 )
 </#if>
 interface ${className}<#if implements?has_content> : <#list implements as interface>${interface}<#if interface_has_next>, </#if></#list></#if> {

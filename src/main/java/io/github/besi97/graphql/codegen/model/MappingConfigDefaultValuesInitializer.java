@@ -79,6 +79,9 @@ public class MappingConfigDefaultValuesInitializer {
         if (mappingConfig.getAddGeneratedAnnotation() == null) {
             mappingConfig.setAddGeneratedAnnotation(MappingConfigConstants.DEFAULT_ADD_GENERATED_ANNOTATION);
         }
+        if (mappingConfig.getAddGeneratedAnnotationDate() == null) {
+            mappingConfig.setAddGeneratedAnnotationDate(MappingConfigConstants.DEFAULT_ADD_GENERATED_ANNOTATION_DATE);
+        }
         if (mappingConfig.getGenerateJacksonTypeIdResolver() == null) {
             mappingConfig.setGenerateJacksonTypeIdResolver(
                     MappingConfigConstants.DEFAULT_GENERATE_JACKSON_TYPE_ID_RESOLVER);

@@ -13,6 +13,7 @@ public class GeneratedInformation {
 
     private final String generatedType;
     private Supplier<ZonedDateTime> dateTimeSupplier;
+    private final boolean addGeneratedAnnotationDate;
 
     public GeneratedInformation(MappingConfig mappingConfig) {
         this(ZonedDateTime::now, mappingConfig);
@@ -21,6 +22,8 @@ public class GeneratedInformation {
     public GeneratedInformation(Supplier<ZonedDateTime> dateTimeSupplier, MappingConfig mappingConfig) {
         this.dateTimeSupplier = dateTimeSupplier;
         this.generatedType = initGeneratedType(mappingConfig);
+        this.addGeneratedAnnotationDate = mappingConfig == null ||
+                !Boolean.FALSE.equals(mappingConfig.getAddGeneratedAnnotationDate());
     }
 
     private static String initGeneratedType(MappingConfig mappingConfig) {
@@ -55,6 +58,9 @@ public class GeneratedInformation {
     }
 
     public String getDateTime() {
+        if (!addGeneratedAnnotationDate) {
+            return null;
+        }
         return DATE_TIME_FORMAT.format(dateTimeSupplier.get());
     }
 

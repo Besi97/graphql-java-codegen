@@ -30,7 +30,13 @@ jobs:
           key: gradle
 
       - name: Build library
-        run: ./gradlew build publishToMavenLocal --warning-mode all
+        run: |
+          # Skip signing for PR builds (secrets not available from forks)
+          SIGNING_FLAG=""
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            SIGNING_FLAG="-PskipSigning=true"
+          fi
+          ./gradlew build publishToMavenLocal --warning-mode all $SIGNING_FLAG
         env:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}

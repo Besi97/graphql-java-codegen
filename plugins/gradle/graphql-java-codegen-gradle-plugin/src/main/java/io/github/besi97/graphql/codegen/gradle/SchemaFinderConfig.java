@@ -5,6 +5,8 @@ import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.InputFiles;
 import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.Optional;
+import org.gradle.api.tasks.PathSensitive;
+import org.gradle.api.tasks.PathSensitivity;
 
 import java.util.Collections;
 import java.util.Set;
@@ -63,6 +65,7 @@ public class SchemaFinderConfig {
 
     @InputFiles
     @Optional
+    @PathSensitive(PathSensitivity.RELATIVE)
     public Set<String> getExcludedFiles() {
         return excludedFiles;
     }

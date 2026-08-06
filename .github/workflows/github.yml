@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        jdk-version: [ 17, 21 ]
+        jdk-version: [ 17, 21, 25 ]
     steps:
       - uses: actions/checkout@v7
 
@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v5
         with:
           java-version: ${{ matrix.jdk-version }}
-          distribution: 'adopt'
+          distribution: 'temurin'
 
       - name: Gradle cache
         uses: actions/cache@v6

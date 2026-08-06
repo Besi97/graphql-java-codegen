@@ -74,8 +74,8 @@ compileTestJava.options.encoding = "UTF-8"
 javadoc.options.encoding = "UTF-8"
 
 mavenPublishing {
-    publishToMavenCentral("CENTRAL_PORTAL")
-    
+    publishToMavenCentral()
+
     // Skip signing for staging/CI jobs (e.g., Dependabot PRs) by passing -PskipSigning=true
     if (!project.hasProperty('skipSigning') || !project.property('skipSigning').toBoolean()) {
         signAllPublications()

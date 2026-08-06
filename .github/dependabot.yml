@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "gradle"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     target-branch: "main"
     reviewers:
       - "Besi97"
@@ -11,7 +11,7 @@ updates:
   - package-ecosystem: "gradle"
     directory: "plugins/gradle/graphql-java-codegen-gradle-plugin/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     target-branch: "main"
     reviewers:
       - "Besi97"
@@ -19,7 +19,7 @@ updates:
   - package-ecosystem: "gradle"
     directory: "plugins/gradle/example-client/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     target-branch: "main"
     reviewers:
       - "Besi97"
@@ -27,7 +27,7 @@ updates:
   - package-ecosystem: "gradle"
     directory: "plugins/gradle/example-server/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     target-branch: "main"
     reviewers:
       - "Besi97"
@@ -35,7 +35,7 @@ updates:
   - package-ecosystem: "gradle"
     directory: "plugins/gradle/example-client-kotlin/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     target-branch: "main"
     reviewers:
       - "Besi97"
@@ -43,7 +43,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     target-branch: "main"
     reviewers:
       - "Besi97"

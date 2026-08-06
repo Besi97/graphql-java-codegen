@@ -17,6 +17,7 @@ import io.github.besi97.graphql.codegen.supplier.MergeableMappingConfigSupplier;
 import io.github.besi97.graphql.codegen.supplier.SchemaFinder;
 import org.gradle.api.Action;
 import org.gradle.api.DefaultTask;
+import org.gradle.work.DisableCachingByDefault;
 import org.gradle.api.file.DirectoryProperty;
 import org.gradle.api.file.ProjectLayout;
 import org.gradle.api.plugins.JavaPluginExtension;
@@ -52,6 +53,7 @@ import java.util.function.Supplier;
  *
  * @author Besi97
  */
+@DisableCachingByDefault(because = "Code generation output may include timestamps")
 public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCodegenConfiguration {
 
     private List<String> graphqlSchemaPaths;

@@ -13,14 +13,10 @@ gh pr create --repo Besi97/graphql-java-codegen --title "PR title" --body "PR de
 ```
 
 **Reason:** This repository has two remotes configured:
-- `origin` → `Besi97/graphql-java-codegen` (your fork)
-- `upstream` → `kobylynskyi/graphql-java-codegen` (the original repository)
+- `origin` → `Besi97/graphql-java-codegen` (the active repository)
+- `upstream` → `kobylynskyi/graphql-java-codegen` (abandoned)
 
-When `gh` auto-detects the repository, it defaults to the upstream remote. However, authentication tokens typically only have permission to create PRs on your fork (`Besi97/graphql-java-codegen`), not the upstream repository. This causes permission errors like:
-
-```
-GraphQL: Resource not accessible by personal access token (createPullRequest)
-```
+When `gh` auto-detects the repository, it defaults to the upstream remote. The upstream repository is abandoned, so all PRs must be created against `Besi97/graphql-java-codegen`.
 
 ### Alternative: Set Default Repository
 
@@ -35,4 +31,4 @@ After running this command, `gh` will use your fork by default for all operation
 ## Workflow
 
 - Always create feature branches from `main`
-- Push to your fork (`origin`) and create PRs against the upstream repository (`kobylynskyi/graphql-java-codegen`) when contributing to the main project
+- Push to your fork (`origin`) and create PRs against `Besi97/graphql-java-codegen`

@@ -2,6 +2,7 @@ package io.github.besi97.graphql.codegen.gradle;
 
 import io.github.besi97.graphql.codegen.GraphQLCodegenValidate;
 import org.gradle.api.DefaultTask;
+import org.gradle.work.DisableCachingByDefault;
 import org.gradle.api.tasks.InputFiles;
 import org.gradle.api.tasks.PathSensitive;
 import org.gradle.api.tasks.PathSensitivity;
@@ -15,6 +16,7 @@ import java.util.List;
  *
  * @author Besi97
  */
+@DisableCachingByDefault(because = "Validation task does not produce output files")
 public class GraphQLCodegenValidateGradleTask extends DefaultTask {
 
     private List<String> graphqlSchemaPaths;

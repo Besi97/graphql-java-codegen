@@ -28,6 +28,8 @@ import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.Nested;
 import org.gradle.api.tasks.Optional;
 import org.gradle.api.tasks.OutputDirectory;
+import org.gradle.api.tasks.PathSensitive;
+import org.gradle.api.tasks.PathSensitivity;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.TaskAction;
 
@@ -279,6 +281,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
      * @throws IOException in case some I/O error occurred
      */
     @InputFiles
+    @PathSensitive(PathSensitivity.RELATIVE)
     public List<String> getActualSchemaPaths() throws IOException {
         if (graphqlSchemaPaths != null) {
             return graphqlSchemaPaths;
@@ -317,6 +320,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @InputFiles
     @Optional
+    @PathSensitive(PathSensitivity.RELATIVE)
     public List<String> getGraphqlSchemaPaths() {
         return graphqlSchemaPaths;
     }
@@ -327,6 +331,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @InputFile
     @Optional
+    @PathSensitive(PathSensitivity.NONE)
     public String getGraphqlQueryIntrospectionResultPath() {
         return graphqlQueryIntrospectionResultPath;
     }
@@ -367,6 +372,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @InputDirectory
     @Optional
+    @PathSensitive(PathSensitivity.RELATIVE)
     @Override
     public File getCustomTemplatesRoot() {
         return customTemplatesRoot;
@@ -1021,6 +1027,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     @InputFiles
     @Optional
+    @PathSensitive(PathSensitivity.RELATIVE)
     public List<String> getConfigurationFiles() {
         return configurationFiles;
     }

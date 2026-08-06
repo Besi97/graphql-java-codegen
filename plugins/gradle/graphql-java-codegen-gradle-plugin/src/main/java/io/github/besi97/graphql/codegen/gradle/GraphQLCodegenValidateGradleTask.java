@@ -2,7 +2,9 @@ package io.github.besi97.graphql.codegen.gradle;
 
 import io.github.besi97.graphql.codegen.GraphQLCodegenValidate;
 import org.gradle.api.DefaultTask;
-import org.gradle.api.tasks.Input;
+import org.gradle.api.tasks.InputFiles;
+import org.gradle.api.tasks.PathSensitive;
+import org.gradle.api.tasks.PathSensitivity;
 import org.gradle.api.tasks.TaskAction;
 
 import java.io.IOException;
@@ -22,7 +24,8 @@ public class GraphQLCodegenValidateGradleTask extends DefaultTask {
         new GraphQLCodegenValidate(graphqlSchemaPaths).validate();
     }
 
-    @Input
+    @InputFiles
+    @PathSensitive(PathSensitivity.RELATIVE)
     public List<String> getGraphqlSchemaPaths() {
         return graphqlSchemaPaths;
     }

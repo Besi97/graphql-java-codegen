@@ -3,7 +3,7 @@ import io.github.besi97.graphql.codegen.gradle.GraphQLCodegenGradleTask
 
 plugins {
     id "java"
-    id "org.jetbrains.kotlin.jvm" version "2.0.21"
+    id "org.jetbrains.kotlin.jvm" version "2.4.10"
     id "io.github.besi97.graphql.codegen" version "6.1.1-SNAPSHOT"
 }
 

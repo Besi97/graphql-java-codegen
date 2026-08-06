@@ -6,7 +6,7 @@ plugins {
     id "java-library"
     id "signing"
     id "maven-publish"
-    id "com.vanniktech.maven.publish" version "0.30.0"
+    id "com.vanniktech.maven.publish" version "0.37.0"
 }
 
 def graphqlCodegenVersion = '6.1.1-SNAPSHOT' // This variable used in the automatic release process

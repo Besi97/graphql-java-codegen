@@ -6,7 +6,7 @@ plugins {
     id "java-library"
     id "signing"
     id "maven-publish"
-    id "com.vanniktech.maven.publish" version "0.30.0"
+    id "com.vanniktech.maven.publish" version "0.37.0"
 }
 
 def graphqlCodegenVersion = '6.1.1-SNAPSHOT' // This variable used in the automatic release process
@@ -74,8 +74,8 @@ compileTestJava.options.encoding = "UTF-8"
 javadoc.options.encoding = "UTF-8"
 
 mavenPublishing {
-    publishToMavenCentral("CENTRAL_PORTAL")
-    
+    publishToMavenCentral()
+
     // Skip signing for staging/CI jobs (e.g., Dependabot PRs) by passing -PskipSigning=true
     if (!project.hasProperty('skipSigning') || !project.property('skipSigning').toBoolean()) {
         signAllPublications()

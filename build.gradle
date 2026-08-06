@@ -75,7 +75,11 @@ javadoc.options.encoding = "UTF-8"
 
 mavenPublishing {
     publishToMavenCentral("CENTRAL_PORTAL")
-    signAllPublications()
+    
+    // Skip signing for staging/CI jobs (e.g., Dependabot PRs) by passing -PskipSigning=true
+    if (!project.hasProperty('skipSigning') || !project.property('skipSigning').toBoolean()) {
+        signAllPublications()
+    }
 
     coordinates("io.github.besi97", "graphql-java-codegen", graphqlCodegenVersion)
 

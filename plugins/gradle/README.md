@@ -17,7 +17,7 @@
 
 ```groovy
 plugins {
-  id "io.github.besi97.graphql.codegen" version "6.1.0"
+  id "io.github.besi97.graphql.codegen" version "6.2.0"
 }
 ```
 
@@ -31,7 +31,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "io.github.besi97.graphql.codegen:graphql-codegen-gradle-plugin:6.1.0"
+    classpath "io.github.besi97.graphql.codegen:graphql-codegen-gradle-plugin:6.2.0"
   }
 }
 

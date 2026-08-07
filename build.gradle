@@ -9,7 +9,7 @@ plugins {
     id "com.vanniktech.maven.publish" version "0.37.0"
 }
 
-def graphqlCodegenVersion = '6.1.1-SNAPSHOT' // This variable used in the automatic release process
+def graphqlCodegenVersion = '6.2.0' // This variable used in the automatic release process
 
 group = "io.github.besi97"
 version = graphqlCodegenVersion

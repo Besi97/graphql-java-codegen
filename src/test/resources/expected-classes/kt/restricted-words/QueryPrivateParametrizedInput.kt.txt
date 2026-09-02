@@ -7,8 +7,7 @@ import java.util.StringJoiner
  * Parametrized input for field private in type Query
  */
 @javax.annotation.Generated(
-    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"],
-    date = "2020-12-31T23:59:59-0500"
+    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"]
 )
 data class QueryPrivateParametrizedInput(
     val int: Int?,

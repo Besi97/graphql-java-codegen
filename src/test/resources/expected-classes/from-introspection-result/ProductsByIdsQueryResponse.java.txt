@@ -4,8 +4,7 @@ import io.github.besi97.graphql.codegen.model.graphql.GraphQLResult;
 import java.util.Map;
 
 @javax.annotation.Generated(
-    value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-31T23:59:59-0500"
+    value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
 )
 public class ProductsByIdsQueryResponse extends GraphQLResult<Map<String, java.util.List<Product>>> {
 

@@ -9,8 +9,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @javax.annotation.Generated(
-    value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-31T23:59:59-0500"
+    value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
 )
 public class UpdateRepositoryMutationRequest implements GraphQLOperationRequest {
 
@@ -85,8 +84,7 @@ public class UpdateRepositoryMutationRequest implements GraphQLOperationRequest 
     }
 
     @javax.annotation.Generated(
-        value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-        date = "2020-12-31T23:59:59-0500"
+        value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
     )
     public static class Builder {
 

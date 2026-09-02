@@ -1,6 +1,5 @@
 @javax.annotation.Generated(
-    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"],
-    date = "2020-12-31T23:59:59-0500"
+    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"]
 )
 @com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME, property = "__typename")
 @com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver(GraphqlJacksonTypeIdResolver::class)

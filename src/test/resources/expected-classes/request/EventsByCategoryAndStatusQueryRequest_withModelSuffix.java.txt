@@ -12,8 +12,7 @@ import java.util.Set;
  * List of events of a specified category.
  */
 @javax.annotation.Generated(
-    value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-31T23:59:59-0500"
+    value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
 )
 public class EventsByCategoryAndStatusQueryRequest implements GraphQLOperationRequest {
 
@@ -92,8 +91,7 @@ public class EventsByCategoryAndStatusQueryRequest implements GraphQLOperationRe
     }
 
     @javax.annotation.Generated(
-        value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-        date = "2020-12-31T23:59:59-0500"
+        value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
     )
     public static class Builder {
 

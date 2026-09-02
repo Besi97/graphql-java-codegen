@@ -4,8 +4,7 @@ import com.fasterxml.jackson.databind.JavaType
 import com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase
 
 @javax.annotation.Generated(
-    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"],
-    date = "2020-12-31T23:59:59-0500"
+    value = ["io.github.besi97.graphql.codegen.GraphQLCodegen"]
 )
 open class GraphqlJacksonTypeIdResolver : TypeIdResolverBase() {
 

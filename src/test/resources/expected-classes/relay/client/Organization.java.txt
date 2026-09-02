@@ -2,8 +2,7 @@ import io.github.besi97.graphql.codegen.model.graphql.GraphQLRequestSerializer;
 import java.util.StringJoiner;
 
 @javax.annotation.Generated(
-    value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-31T23:59:59-0500"
+    value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
 )
 public class Organization implements java.io.Serializable {
 
@@ -41,8 +40,7 @@ public class Organization implements java.io.Serializable {
     }
 
     @javax.annotation.Generated(
-        value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-        date = "2020-12-31T23:59:59-0500"
+        value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
     )
     public static class Builder {
 

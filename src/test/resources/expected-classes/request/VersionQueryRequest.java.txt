@@ -12,8 +12,7 @@ import java.util.Set;
  * Version of the application.
  */
 @javax.annotation.Generated(
-    value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-31T23:59:59-0500"
+    value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
 )
 public class VersionQueryRequest implements GraphQLOperationRequest {
 
@@ -84,8 +83,7 @@ public class VersionQueryRequest implements GraphQLOperationRequest {
     }
 
     @javax.annotation.Generated(
-        value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-        date = "2020-12-31T23:59:59-0500"
+        value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
     )
     public static class Builder {
 

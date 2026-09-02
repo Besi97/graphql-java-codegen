@@ -2,8 +2,7 @@ package io.github.besi97.graphql.test1;
 
 
 @javax.annotation.Generated(
-    value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-    date = "2020-12-31T23:59:59-0500"
+    value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
 )
 public class Person implements java.io.Serializable, NamedEntity {
 
@@ -56,8 +55,7 @@ public class Person implements java.io.Serializable, NamedEntity {
     }
 
     @javax.annotation.Generated(
-        value = "io.github.besi97.graphql.codegen.GraphQLCodegen",
-        date = "2020-12-31T23:59:59-0500"
+        value = "io.github.besi97.graphql.codegen.GraphQLCodegen"
     )
     public static class Builder {
 

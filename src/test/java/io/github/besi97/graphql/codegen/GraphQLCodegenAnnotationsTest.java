@@ -323,6 +323,7 @@ class GraphQLCodegenAnnotationsTest {
     @Test
     void generate_GeneratedAnnotation() throws Exception {
         mappingConfig.setGeneratedAnnotation("jakarta.annotation.Generated");
+        mappingConfig.setAddGeneratedAnnotationDate(true);
 
         generate("src/test/resources/schemas/test.graphqls");
 
@@ -336,9 +337,8 @@ class GraphQLCodegenAnnotationsTest {
     }
 
     @Test
-    void generate_GeneratedAnnotationWithoutDate() throws Exception {
+    void generate_GeneratedAnnotationWithoutDateByDefault() throws Exception {
         mappingConfig.setGeneratedAnnotation("jakarta.annotation.Generated");
-        mappingConfig.setAddGeneratedAnnotationDate(false);
 
         generate("src/test/resources/schemas/test.graphqls");
 

@@ -36,20 +36,20 @@ jobs:
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             SIGNING_FLAG="-PskipSigning=true"
           fi
-          ./gradlew build publishToMavenLocal --warning-mode all $SIGNING_FLAG
+          ./gradlew --no-daemon build publishToMavenLocal --warning-mode all $SIGNING_FLAG
         env:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
 
       - name: Build gradle plugin
-        run: ./gradlew -p plugins/gradle/graphql-java-codegen-gradle-plugin build publishToMavenLocal --warning-mode all
+        run: ./gradlew --no-daemon -p plugins/gradle/graphql-java-codegen-gradle-plugin build publishToMavenLocal --warning-mode all
 
       - name: Build gradle example-server
-        run: ./gradlew -p plugins/gradle/example-server test --warning-mode all
+        run: ./gradlew --no-daemon -p plugins/gradle/example-server test --warning-mode all
 
       - name: Build gradle example-client
-        run: ./gradlew -p plugins/gradle/example-client test --warning-mode all
+        run: ./gradlew --no-daemon -p plugins/gradle/example-client test --warning-mode all
 
       - name: Build gradle example-client-kotlin
-        run: ./gradlew -p plugins/gradle/example-client-kotlin build --warning-mode all
+        run: ./gradlew --no-daemon -p plugins/gradle/example-client-kotlin build --warning-mode all
 

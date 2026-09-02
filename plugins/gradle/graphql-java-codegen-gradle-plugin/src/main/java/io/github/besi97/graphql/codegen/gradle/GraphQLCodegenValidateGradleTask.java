@@ -12,13 +12,12 @@ import org.gradle.api.tasks.PathSensitive;
 import org.gradle.api.tasks.PathSensitivity;
 import org.gradle.api.tasks.TaskAction;
 
-import javax.inject.Inject;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import javax.inject.Inject;
 
 /**
  * Gradle task for GraphQL code generation
@@ -57,8 +56,8 @@ public class GraphQLCodegenValidateGradleTask extends DefaultTask {
 
     /**
      * Marker file that records a successful validation run.
-     * <p>
-     * A cacheable task must declare at least one output, otherwise Gradle silently
+     *
+     * <p>A cacheable task must declare at least one output, otherwise Gradle silently
      * disables caching for it. This file contains no meaningful data; it only makes
      * the validation result incremental and cacheable.
      *
